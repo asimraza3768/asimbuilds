@@ -8,11 +8,6 @@
     <link rel="canonical" href="https://asimbuilds.dev/">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
-    <meta property="og:title" content="Asim Raza | Data Engineer">
-    <meta property="og:description" content="Data Engineer focused on building automated ETL pipelines and data platforms.">
-    <meta property="og:url" content="https://asimbuilds.dev/">
-    <meta property="og:type" content="website">
 </head>
 <body>
 
@@ -26,7 +21,7 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#writing">Writing</a></li>
+                <li><a href="blog.html">Writing</a></li>
             </ul>
             <div class="nav-actions">
                 <a href="https://github.com/asimraza3768" target="_blank" rel="noopener" class="icon-link">GitHub</a>
@@ -42,7 +37,8 @@
     <main>
         <!-- Hero Section -->
         <section class="container hero">
-            <!-- Left Column: Introduction -->
+            <div class="bg-grid-pattern"></div>
+            
             <div class="hero-content reveal">
                 <span class="hero-label">DATA ENGINEER</span>
                 <h1 class="hero-title">Asim Raza</h1>
@@ -50,28 +46,14 @@
                 <p class="hero-desc">Data Engineer focused on building automated ETL pipelines, data platforms, and analytics-ready datasets using Python, SQL, PySpark, Databricks, and AWS.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="mailto:razaasim5700@gmail.com" class="btn btn-secondary">Contact Me</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
                 </div>
             </div>
             
-            <!-- Right Column: Profile Image -->
             <div class="hero-profile-wrapper reveal delay-2">
                 <img src="assets/profile.png" alt="Asim Raza" class="hero-profile-img">
             </div>
         </section>
-
-        <!-- Tech Strip -->
-        <div class="tech-strip reveal delay-1">
-            <div class="tech-list">
-                <span class="tech-item">Python</span>
-                <span class="tech-item">SQL</span>
-                <span class="tech-item">PySpark</span>
-                <span class="tech-item">Databricks</span>
-                <span class="tech-item">AWS S3</span>
-                <span class="tech-item">Delta Lake</span>
-                <span class="tech-item">REST APIs</span>
-            </div>
-        </div>
 
         <!-- 01. About Section -->
         <section id="about" class="container">
@@ -89,10 +71,6 @@
                     <h3>Building Systems to Create Useful Information</h3>
                     <p>I am a Data Engineer with experience building reliable data pipelines and analytics-ready systems. My work covers the full data engineering cycle from API-based data ingestion and cloud storage to data transformation, data quality validation, data modeling, and analytics.</p>
                     <p>I have hands-on experience with <strong>Python, SQL, PySpark, Databricks, AWS S3, and Delta Lake</strong>. My approach to data engineering is focused on designing and implementing workflows that are structured, maintainable, and capable of delivering clean and reliable data.</p>
-                    
-                    <h3>Beyond Data Engineering</h3>
-                    <p>Outside of technology, I enjoy exploring ideas through writing, poetry, and music. I use writing as a way to put thoughts and observations into words.</p>
-                    <p>Not everything needs to solve a technical problem—sometimes I simply enjoy creating something because an idea is worth expressing. That is why I created the <a href="blog.html" style="color: var(--accent-color); font-weight: 500;">Writing</a> section of this website.</p>
                 </div>
             </div>
         </section>
@@ -105,7 +83,7 @@
                 <p class="section-subtitle">Real engineering workflows focusing on reliability, data quality, and structured analytics.</p>
             </div>
             
-            <!-- Project 1: Job Market Intelligence Platform -->
+            <!-- Job Market Intelligence Platform -->
             <div class="project-card featured reveal delay-1">
                 <div class="project-content">
                     <h3>Job Market Intelligence Platform</h3>
@@ -142,26 +120,25 @@
                     <a href="https://github.com/asimraza3768/job-market-intelligence" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub</a>
                 </div>
                 
-                <div class="project-arch" style="padding: 1.5rem;">
-                    <div class="pipeline-visual">
-                        <div class="pipe-node">JobsPipe API (Ingestion) <div class="node-indicator active"></div></div>
-                        <div class="pipe-edge"></div>
-                        <div class="pipe-node">Cursor-based Pagination <div class="node-indicator"></div></div>
-                        <div class="pipe-edge"></div>
-                        <div class="pipe-node">Amazon S3 (Raw Landing) <div class="node-indicator"></div></div>
-                        <div class="pipe-edge"></div>
-                        <div class="pipe-node highlighted">Databricks Workflow <div class="node-indicator"></div></div>
-                        <div class="pipe-edge"></div>
-                        <div class="pipe-node">Bronze / Silver Delta <div class="node-indicator"></div></div>
-                        <div class="pipe-edge"></div>
-                        <div class="pipe-node">Gold Analytics <div class="node-indicator"></div></div>
-                        <div class="pipe-edge"></div>
-                        <div class="pipe-node">Databricks AI/BI Dashboard <div class="node-indicator"></div></div>
-                    </div>
+                <!-- Polished CSS Flowchart Animation -->
+                <div class="pipeline-flow">
+                    <div class="pipe-node">JobsPipe API</div>
+                    <div class="pipe-edge"></div>
+                    <div class="pipe-node">Cursor Pagination</div>
+                    <div class="pipe-edge"></div>
+                    <div class="pipe-node">AWS S3 (Raw Landing)</div>
+                    <div class="pipe-edge"></div>
+                    <div class="pipe-node highlight">Databricks Workflow</div>
+                    <div class="pipe-edge"></div>
+                    <div class="pipe-node">Bronze / Silver Delta</div>
+                    <div class="pipe-edge"></div>
+                    <div class="pipe-node">Gold Analytics</div>
+                    <div class="pipe-edge"></div>
+                    <div class="pipe-node">Databricks AI/BI</div>
                 </div>
             </div>
 
-            <!-- Project 2: Weather Data Pipeline -->
+            <!-- Weather Data Pipeline -->
             <div class="project-card reveal delay-1">
                 <div class="project-content">
                     <h3>Weather Data Engineering Pipeline</h3>
@@ -174,17 +151,17 @@
                     </div>
                     <a href="https://github.com/asimraza3768" target="_blank" rel="noopener" class="btn btn-secondary">View GitHub Profile</a>
                 </div>
-                <div class="project-arch">
+                <div class="project-arch-text">
                     <span class="comment">// Delta Tables</span>
                     weather.bronze.bronze_weather<br>
                     weather.silver.silver_weather<br>
                     weather.gold.daily_weather_summary<br><br>
-                    <span class="comment">// Architecture Data Quality</span>
+                    <span class="comment">// Data Quality Checks</span>
                     Null checks, Timestamp conversions
                 </div>
             </div>
 
-            <!-- Project 3: Online Grocery Management System -->
+            <!-- Online Grocery Management System -->
             <div class="project-card reveal delay-2">
                 <div class="project-content">
                     <h3>Online Grocery Management System</h3>
@@ -192,20 +169,15 @@
                     <div class="tech-tags" style="margin: 1.5rem 0;">
                         <span class="tag">PHP</span>
                         <span class="tag">MySQL</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">XAMPP</span>
                         <span class="tag">Authentication</span>
                     </div>
                 </div>
-                <div class="project-arch">
-                    <span class="comment">// Customer Features</span>
+                <div class="project-arch-text">
+                    <span class="comment">// Core Features</span>
                     - Product browsing & filtering<br>
                     - Shopping cart & checkout<br>
-                    - Order placement & history<br><br>
-                    <span class="comment">// Admin Features</span>
-                    - Product & inventory management<br>
-                    - Order management<br>
-                    - Sales & stock reporting
+                    - Order management & history<br>
+                    - Inventory & sales reporting
                 </div>
             </div>
         </section>
@@ -219,43 +191,41 @@
             </div>
             
             <div class="grid-3" style="margin-bottom: 2rem;">
-                <!-- Group 1: Programming -->
                 <div class="card reveal delay-1">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    </div>
                     <h3>Programming & Development</h3>
                     <p>Building data applications, APIs, and integrations.</p>
                     <div class="tech-tags">
                         <span class="tag">Python</span>
                         <span class="tag">SQL</span>
-                        <span class="tag">Object-Oriented Programming</span>
-                        <span class="tag">Data Structures</span>
+                        <span class="tag">OOP</span>
                         <span class="tag">REST API Integration</span>
-                        <span class="tag">Python Testing</span>
                         <span class="tag">Git</span>
-                        <span class="tag">GitHub</span>
                     </div>
                 </div>
                 
-                <!-- Group 2: Data Engineering -->
                 <div class="card reveal delay-2">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                    </div>
                     <h3>Data Engineering</h3>
                     <p>Designing pipelines and analytics-ready data systems.</p>
                     <div class="tech-tags">
                         <span class="tag">ETL / ELT</span>
                         <span class="tag">Data Pipelines</span>
-                        <span class="tag">Data Integration</span>
-                        <span class="tag">Data Quality</span>
-                        <span class="tag">Data Transformation</span>
                         <span class="tag">Data Modeling</span>
-                        <span class="tag">Dimensional Modeling</span>
                         <span class="tag">Star Schema</span>
-                        <span class="tag">Data Warehousing</span>
                         <span class="tag">Apache Spark</span>
                         <span class="tag">PySpark</span>
                     </div>
                 </div>
                 
-                <!-- Group 3: Data Platforms -->
                 <div class="card reveal delay-3">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>
+                    </div>
                     <h3>Data Platforms & Cloud</h3>
                     <p>Building scalable architectures using modern cloud tools.</p>
                     <div class="tech-tags">
@@ -263,15 +233,15 @@
                         <span class="tag">Delta Lake</span>
                         <span class="tag">AWS S3</span>
                         <span class="tag">Unity Catalog</span>
-                        <span class="tag">Databricks Workflows</span>
-                        <span class="tag">Databricks AI/BI</span>
                     </div>
                 </div>
             </div>
 
             <div class="grid-2">
-                <!-- Group 4: Databases -->
                 <div class="card reveal delay-1">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                    </div>
                     <h3>Databases</h3>
                     <p>Relational database management and optimization.</p>
                     <div class="tech-tags">
@@ -280,18 +250,17 @@
                     </div>
                 </div>
                 
-                <!-- Group 5: Data Tools -->
                 <div class="card reveal delay-2">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
                     <h3>Data Tools & Engineering Practices</h3>
                     <p>Workflow orchestration, transformations, and automation practices.</p>
                     <div class="tech-tags">
                         <span class="tag">Apache Airflow</span>
                         <span class="tag">dbt</span>
-                        <span class="tag">Jinja</span>
-                        <span class="tag">Workflow Orchestration</span>
                         <span class="tag">Data Validation</span>
                         <span class="tag">Pipeline Automation</span>
-                        <span class="tag">Git Workflow</span>
                     </div>
                 </div>
             </div>
@@ -314,9 +283,8 @@
         <!-- 04. Experience & 05. Education Section -->
         <section class="container" style="border-bottom: none;">
             <div class="grid-2">
-                <!-- Experience -->
                 <div id="experience" class="reveal delay-1">
-                    <div class="section-header" style="margin-bottom: 2rem;">
+                    <div class="section-header" style="margin-bottom: 2.5rem;">
                         <span class="section-num">04 / Experience</span>
                         <h2 class="section-title">History</h2>
                     </div>
@@ -330,9 +298,8 @@
                     </div>
                 </div>
                 
-                <!-- Education -->
                 <div id="education" class="reveal delay-2">
-                    <div class="section-header" style="margin-bottom: 2rem;">
+                    <div class="section-header" style="margin-bottom: 2.5rem;">
                         <span class="section-num">05 / Education</span>
                         <h2 class="section-title">Academics</h2>
                     </div>
@@ -359,24 +326,24 @@
                     <span class="cert-provider">DataCamp</span>
                     <h3>Data Engineer in Python</h3>
                     <p>End-to-end Python data engineering, covering data ingestion, cleaning, and software engineering principles.</p>
-                    <a href="certificate.html?id=datacamp-python" class="btn btn-secondary">View Certificate →</a>
+                    <a href="certificate.html?id=datacamp-python" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
                 </div>
                 <div class="cert-card reveal delay-2">
                     <span class="cert-provider">DataCamp</span>
                     <h3>Associate Data Engineer in SQL</h3>
                     <p>Comprehensive training on database design, relational databases, and writing optimized SQL queries.</p>
-                    <a href="certificate.html?id=datacamp-sql" class="btn btn-secondary">View Certificate →</a>
+                    <a href="certificate.html?id=datacamp-sql" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
                 </div>
                 <div class="cert-card reveal delay-3">
                     <span class="cert-provider">DataCamp</span>
                     <h3>Intro to Apache Airflow</h3>
                     <p>Building and orchestrating data pipelines using Apache Airflow workflows.</p>
-                    <a href="certificate.html?id=datacamp-airflow" class="btn btn-secondary">View Certificate →</a>
+                    <a href="certificate.html?id=datacamp-airflow" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
                 </div>
             </div>
             
             <div class="reveal delay-2" style="text-align: center; margin-top: 4rem;">
-                <a href="certifications.html" class="btn btn-primary" style="padding: 1rem 2rem;">View All Certifications →</a>
+                <a href="certifications.html" class="btn btn-primary">View All Certifications →</a>
             </div>
         </section>
 
@@ -388,37 +355,40 @@
                 <p class="section-subtitle">A space for thoughts, ideas, experiences, poetry, and technology.</p>
             </div>
             <div class="grid-2">
-                <div class="cert-card article-card reveal delay-1" style="background: var(--bg-secondary);">
-                    <div class="article-meta">
-                        <span class="article-category">Data Engineering</span>
-                        <span>Sep 27, 2026</span>
+                <div class="editorial-card reveal delay-1">
+                    <div class="article-meta" style="display:flex; justify-content:space-between; margin-bottom: 1rem;">
+                        <span class="category-Data-Engineering">Data Engineering</span>
+                        <span style="font-size:0.85rem; color:var(--text-tertiary); font-weight:500;">Sep 27, 2026</span>
                     </div>
                     <h3>What I Learned From Building an End-to-End Data Pipeline</h3>
-                    <p class="article-excerpt">Moving beyond tutorials and understanding the real complexities of data ingestion, quality validation, and modeling in production environments.</p>
-                    <a href="blog.html" class="btn btn-secondary">Read More in Blog →</a>
+                    <p style="color:var(--text-secondary); font-size:1rem; margin-bottom:1.5rem;">Moving beyond tutorials and understanding the real complexities of data ingestion, quality validation, and modeling in production environments.</p>
+                    <a href="blog.html" class="read-more">Read More in Blog <span class="read-more-arrow">→</span></a>
                 </div>
-                <div class="cert-card article-card reveal delay-2" style="background: var(--bg-secondary);">
-                    <div class="article-meta">
-                        <span class="article-category">Thoughts</span>
-                        <span>Sep 25, 2026</span>
+                <div class="editorial-card reveal delay-2">
+                    <div class="article-meta" style="display:flex; justify-content:space-between; margin-bottom: 1rem;">
+                        <span class="category-Thoughts">Thoughts</span>
+                        <span style="font-size:0.85rem; color:var(--text-tertiary); font-weight:500;">Sep 25, 2026</span>
                     </div>
                     <h3>The Difference Between Being Busy and Moving Forward</h3>
-                    <p class="article-excerpt">A short reflection on productivity, avoiding burnout, and the subtle difference between mere movement and meaningful progress.</p>
-                    <a href="blog.html" class="btn btn-secondary">Read More in Blog →</a>
+                    <p style="color:var(--text-secondary); font-size:1rem; margin-bottom:1.5rem;">A short reflection on productivity, avoiding burnout, and the subtle difference between mere movement and meaningful progress.</p>
+                    <a href="blog.html" class="read-more">Read More in Blog <span class="read-more-arrow">→</span></a>
                 </div>
             </div>
         </section>
 
         <!-- 08. Contact Section -->
-        <section id="contact" class="container reveal" style="border-bottom: none; text-align: center; padding-top: 6rem; padding-bottom: 10rem;">
-            <div class="section-header" style="align-items: center;">
-                <span class="section-num">08 / Contact</span>
-                <h2 class="section-title">Let's Build Something Useful</h2>
-                <p class="section-subtitle" style="text-align: center;">I am actively looking for Entry-level / Junior Data Engineer roles. Feel free to connect if you are a recruiter, hiring manager, or engineer looking to collaborate.</p>
-            </div>
-            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
-                <a href="mailto:razaasim5700@gmail.com" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.05rem;">Email Me directly</a>
-                <a href="https://www.linkedin.com/in/asimraza3768/" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1.05rem;">LinkedIn</a>
+        <section id="contact" style="padding-top: 8rem; padding-bottom: 8rem; text-align: center; border-bottom: none; overflow: hidden;">
+            <div class="bg-grid-pattern"></div>
+            <div class="container reveal">
+                <div class="section-header" style="align-items: center; margin-bottom: 3rem;">
+                    <span class="section-num">08 / Contact</span>
+                    <h2 class="section-title">Let's Build Something Useful</h2>
+                    <p class="section-subtitle" style="text-align: center; margin: 0 auto;">I am actively looking for Entry-level / Junior Data Engineer roles. Feel free to connect if you are a recruiter, hiring manager, or engineer looking to collaborate.</p>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="mailto:razaasim5700@gmail.com" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.05rem;">Email Me Directly</a>
+                    <a href="https://www.linkedin.com/in/asimraza3768/" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-size: 1.05rem;">LinkedIn</a>
+                </div>
             </div>
         </section>
     </main>
@@ -428,7 +398,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4 class="logo" style="margin-bottom: 0.5rem; font-size: 1.25rem;">Asim Builds</h4>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">Asim Raza<br>Data Engineer<br>Gojra, Pakistan</p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">Asim Raza<br>Data Engineer<br>Gojra, Pakistan</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigation</h4>
