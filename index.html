@@ -19,14 +19,66 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation (Keep your existing nav but reorder links if desired: Projects, About, Skills...) -->
-    <!-- ... [Navigation Block Unchanged] ... -->
+
+    <!-- Navigation -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Asim Builds</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="blog.html">Writing</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://github.com/asimraza3768" target="_blank" rel="noopener" class="icon-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/asimraza3768/" target="_blank" rel="noopener" class="icon-link">LinkedIn</a>
+                <a href="resume.html" class="btn btn-secondary">View Resume</a>
+            </div>
+            <button class="hamburger" aria-label="Toggle Navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
 
     <main>
-        <!-- Hero Section (Unchanged, relies on existing responsive CSS to show image first on mobile) -->
-        <!-- ... [Hero Block Unchanged] ... -->
+        <!-- Hero Section -->
+        <section class="container hero">
+            <div class="bg-grid-pattern"></div>
+            
+            <div class="hero-content reveal">
+                <span class="hero-label">DATA ENGINEER</span>
+                <h1 class="hero-title">Asim Raza</h1>
+                <h2 class="hero-subtitle">Building reliable data pipelines and analytics systems.</h2>
+                <p class="hero-desc">Data Engineer focused on building automated ETL pipelines, data platforms, and analytics-ready datasets using Python, SQL, PySpark, Databricks, and AWS.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            
+            <div class="hero-profile-wrapper reveal delay-2">
+                <img src="assets/profile.png" alt="Professional portrait of Asim Raza" class="hero-profile-img">
+            </div>
+        </section>
 
-        <!-- 01. Projects Section (MOVED TO TOP) -->
+        <!-- Tech Strip -->
+        <div class="tech-strip reveal delay-1">
+            <div class="tech-list">
+                <span class="tech-item">Python</span>
+                <span class="tech-item">SQL</span>
+                <span class="tech-item">PySpark</span>
+                <span class="tech-item">Databricks</span>
+                <span class="tech-item">AWS S3</span>
+                <span class="tech-item">Delta Lake</span>
+                <span class="tech-item">REST APIs</span>
+            </div>
+        </div>
+
+        <!-- 01. Projects Section -->
         <section id="projects" class="container">
             <div class="section-header reveal">
                 <span class="section-num">01 / Projects</span>
@@ -50,7 +102,7 @@
                         <span class="tag">REST APIs</span>
                     </div>
 
-                    <!-- Updated Engineering Metrics -->
+                    <!-- Engineering Metrics -->
                     <div class="project-metrics">
                         <div class="metric"><span class="metric-val">400+</span><span class="metric-label">Job Listings Processed</span></div>
                         <div class="metric"><span class="metric-val">6</span><span class="metric-label">Data Quality Categories</span></div>
@@ -108,7 +160,6 @@
                         <span class="tag">SQL</span>
                         <span class="tag">Delta Lake</span>
                     </div>
-                    <!-- FIXED WEATHER REPO LINK -->
                     <a href="https://github.com/asimraza3768/Weather-project" target="_blank" rel="noopener" class="btn btn-secondary">View GitHub Repository</a>
                 </div>
                 <div class="project-arch-text">
@@ -139,7 +190,7 @@
             </div>
         </section>
 
-        <!-- 02. About Section (Moved down, merged with Beyond Data Engineering) -->
+        <!-- 02. About Section -->
         <section id="about" class="container">
             <div class="section-header reveal">
                 <span class="section-num">02 / About</span>
@@ -170,8 +221,89 @@
             </div>
         </section>
 
-        <!-- 03. Skills Section (Purely Technical Now) -->
-        <!-- ... [Keep existing Skills section exactly as generated previously, just remove the .personal-interests block at the bottom] ... -->
+        <!-- 03. Skills Section -->
+        <section id="skills" class="container">
+            <div class="section-header reveal">
+                <span class="section-num">03 / Skills</span>
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Core capabilities spanning software development, data engineering, and modern cloud architectures.</p>
+            </div>
+            
+            <div class="grid-3" style="margin-bottom: 2rem;">
+                <div class="card reveal delay-1">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    </div>
+                    <h3>Programming & Development</h3>
+                    <p>Building data applications, APIs, and integrations.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">REST API Integration</span>
+                        <span class="tag">Git</span>
+                    </div>
+                </div>
+                
+                <div class="card reveal delay-2">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                    </div>
+                    <h3>Data Engineering</h3>
+                    <p>Designing pipelines and analytics-ready data systems.</p>
+                    <div class="tech-tags">
+                        <span class="tag">ETL / ELT</span>
+                        <span class="tag">Data Pipelines</span>
+                        <span class="tag">Data Modeling</span>
+                        <span class="tag">Star Schema</span>
+                        <span class="tag">Apache Spark</span>
+                        <span class="tag">PySpark</span>
+                    </div>
+                </div>
+                
+                <div class="card reveal delay-3">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>
+                    </div>
+                    <h3>Data Platforms & Cloud</h3>
+                    <p>Building scalable architectures using modern cloud tools.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Databricks</span>
+                        <span class="tag">Delta Lake</span>
+                        <span class="tag">AWS S3</span>
+                        <span class="tag">Unity Catalog</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card reveal delay-1">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                    </div>
+                    <h3>Databases</h3>
+                    <p>Relational database management and optimization.</p>
+                    <div class="tech-tags">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+                
+                <div class="card reveal delay-2">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
+                    <h3>Data Tools & Engineering Practices</h3>
+                    <p>Workflow orchestration, transformations, and automation practices.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Apache Airflow</span>
+                        <span class="tag">dbt</span>
+                        <span class="tag">Data Validation</span>
+                        <span class="tag">Pipeline Automation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- 04. Experience & 05. Education Section -->
         <section class="container" style="border-bottom: none;">
@@ -207,10 +339,40 @@
             </div>
         </section>
 
-        <!-- 06. Certifications (Unchanged) -->
-        <!-- ... -->
+        <!-- 06. Certifications Section -->
+        <section id="certifications" class="container">
+            <div class="section-header reveal">
+                <span class="section-num">06 / Certifications</span>
+                <h2 class="section-title">Featured Learning</h2>
+                <p class="section-subtitle">Continuous learning in data engineering, cloud platforms, and software development.</p>
+            </div>
+            <div class="grid-3">
+                <div class="cert-card reveal delay-1">
+                    <span class="cert-provider">DataCamp</span>
+                    <h3>Data Engineer in Python</h3>
+                    <p>End-to-end Python data engineering, covering data ingestion, cleaning, and software engineering principles.</p>
+                    <a href="certificate.html?id=datacamp-data-eng-python" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
+                </div>
+                <div class="cert-card reveal delay-2">
+                    <span class="cert-provider">DataCamp</span>
+                    <h3>Associate Data Engineer in SQL</h3>
+                    <p>Comprehensive training on database design, relational databases, and writing optimized SQL queries.</p>
+                    <a href="certificate.html?id=datacamp-assoc-data-eng-sql" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
+                </div>
+                <div class="cert-card reveal delay-3">
+                    <span class="cert-provider">DataCamp</span>
+                    <h3>Intro to Apache Airflow</h3>
+                    <p>Building and orchestrating data pipelines using Apache Airflow workflows.</p>
+                    <a href="certificate.html?id=datacamp-airflow" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
+                </div>
+            </div>
+            
+            <div class="reveal delay-2" style="text-align: center; margin-top: 4rem;">
+                <a href="certifications.html" class="btn btn-primary">View All Certifications →</a>
+            </div>
+        </section>
 
-        <!-- 07. Writing Section (Featuring New DE Articles) -->
+        <!-- 07. Writing Section -->
         <section id="writing" class="container">
             <div class="section-header reveal">
                 <span class="section-num">07 / Writing</span>
@@ -242,5 +404,61 @@
             </div>
         </section>
 
-        <!-- 08. Contact & Footer (Unchanged except removing footer promo text) -->
-        <!-- ... Footer: remove `<span>Designed & Built without templates.</span>` ... -->
+        <!-- 08. Contact Section -->
+        <section id="contact" style="padding-top: 8rem; padding-bottom: 8rem; text-align: center; border-bottom: none; overflow: hidden;">
+            <div class="bg-grid-pattern"></div>
+            <div class="container reveal">
+                <div class="section-header" style="align-items: center; margin-bottom: 3rem;">
+                    <span class="section-num">08 / Contact</span>
+                    <h2 class="section-title">Let's Build Something Useful</h2>
+                    <p class="section-subtitle" style="text-align: center; margin: 0 auto;">I am actively looking for Entry-level / Junior Data Engineer roles. Feel free to connect if you are a recruiter, hiring manager, or engineer looking to collaborate.</p>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="mailto:razaasim5700@gmail.com" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.05rem;">Email Me Directly</a>
+                    <a href="https://www.linkedin.com/in/asimraza3768/" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-size: 1.05rem;">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="logo" style="margin-bottom: 0.5rem; font-size: 1.25rem;">Asim Builds</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">Asim Raza<br>Data Engineer<br>Gojra, Pakistan</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#skills">Skills</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://github.com/asimraza3768" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/asimraza3768/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="mailto:razaasim5700@gmail.com">Email</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Content</h4>
+                    <ul>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="blog.html">Writing</a></li>
+                        <li><a href="sitemap.xml">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Asim Raza. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
