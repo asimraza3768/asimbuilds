@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bronze vs Silver vs Gold: What I Learned Building My Pipeline | Asim Raza</title>
+    <meta name="description" content="Moving beyond theory to explain the practical purpose of each layer in a Medallion architecture.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/bronze-vs-silver-vs-gold.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">Bronze vs Silver vs Gold: What I Learned Building My Pipeline</h1>
+                <div class="article-page-meta">October 10, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 5 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>When you read about the Medallion architecture, it sounds like a rigid set of rules. However, while building my Job Market pipeline, I learned that these layers solve highly practical problems regarding data state.</p>
+                <h2>The Bronze Layer: The Safety Net</h2>
+                <p>My Bronze layer takes the raw JSON dumped into Amazon S3 from the JobsPipe API and saves it as a Delta table. No transformations. No cleaning. If my downstream logic changes tomorrow, I don't need to re-query the API; I just re-process the Bronze data.</p>
+                <h2>The Silver Layer: The Truth</h2>
+                <p>This is where the heavy lifting happens. In Silver, I apply my six data quality checks, remove duplicates using PySpark, format timestamps, and flatten nested JSON. Silver represents a clean, queried state of reality.</p>
+                <h2>The Gold Layer: The Business Value</h2>
+                <p>Silver data is clean, but it's not optimized for a Databricks AI/BI dashboard. The Gold layer consists of 6 tables that group and aggregate the data. Instead of raw job rows, Gold tables contain specific metrics like skill co-occurrence and city demand, making dashboard queries incredibly fast.</p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

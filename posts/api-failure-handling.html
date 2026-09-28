@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Happens When an API Fails Mid-Pipeline? | Asim Raza</title>
+    <meta name="description" content="Discussing fail-fast handling, raising exceptions, and preventing incomplete data.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/api-failure-handling.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">What Happens When an API Fails Mid-Pipeline?</h1>
+                <div class="article-page-meta">October 8, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 3 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>When extracting 400+ job listings via the JobsPipe API using cursor-based pagination, network timeouts or rate limits are a real possibility. Deciding how to handle a non-200 HTTP response is a critical engineering decision.</p>
+                <h2>The Danger of Silent Failures</h2>
+                <p>If an API fails on page 3 of 10 and the script just logs a warning and finishes, the Databricks workflow will report a "Success". The pipeline will move incomplete data into S3, process it through Bronze and Silver, and ultimately show false metrics on the Gold dashboard.</p>
+                <h2>Implementing Fail-Fast</h2>
+                <p>In my pipeline, I explicitly chose a fail-fast approach. If the API returns a non-success response, the Python script raises a hard exception. This immediately halts the Databricks workflow.</p>
+                <p>No data is written to S3. No downstream tables are updated. It is much safer to have an outdated dashboard and an alert than to have a dashboard displaying corrupted, incomplete data.</p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

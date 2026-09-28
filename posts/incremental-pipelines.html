@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Incremental Data Pipelines with Databricks | Asim Raza</title>
+    <meta name="description" content="How to process only new job data without rebuilding the entire dataset.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/incremental-pipelines.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">Building Incremental Data Pipelines with Databricks</h1>
+                <div class="article-page-meta">October 2, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 5 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>Processing 400+ job listings takes under 3 minutes, but as data grows, reading the entire history from S3 and overwriting the Delta tables on every run becomes an expensive anti-pattern.</p>
+                <h2>The Power of Incremental Loading</h2>
+                <p>Instead of a "Full Load" strategy, I designed the Databricks workflow to process data incrementally. When the Python script pulls from the JobsPipe API, it lands a new JSON file in S3. The Bronze notebook is designed to only pick up new files that haven't been processed yet.</p>
+                <p>By leveraging PySpark and Delta Lake's transaction logs, the Silver layer only merges the newly validated rows into the historical dataset. This keeps compute costs low, keeps the pipeline runtime under 3 minutes, and ensures the architecture scales as the dataset grows over time.</p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

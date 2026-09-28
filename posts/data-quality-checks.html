@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Data Quality Checks Matter Before Analytics | Asim Raza</title>
+    <meta name="description" content="Exploring the six validation categories used in my project to ensure analytics-ready data.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/data-quality-checks.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">Why Data Quality Checks Matter Before Analytics</h1>
+                <div class="article-page-meta">October 5, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 4 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>Garbage in, garbage out. If you feed unvalidated API data directly into a BI dashboard, your analytics will be fundamentally wrong. In my Job Market pipeline, data must pass through six validation categories in the Silver layer before it is allowed to reach Gold.</p>
+                <h2>The 6 Validation Categories</h2>
+                <ul>
+                    <li><strong>Required Fields:</strong> Dropping rows that lack critical IDs or job titles.</li>
+                    <li><strong>Duplicates:</strong> Removing identical job postings scraped multiple times.</li>
+                    <li><strong>Salaries:</strong> Filtering out malformed or unrealistic salary strings.</li>
+                    <li><strong>Timestamps:</strong> Casting strings to proper Date/Timestamp types.</li>
+                    <li><strong>Remote Values:</strong> Standardizing booleans (e.g., converting "Yes", "Y", "True" to a standard format).</li>
+                    <li><strong>Country Codes:</strong> Ensuring the 5 targeted cities map correctly to Pakistan.</li>
+                </ul>
+                <p>Enforcing these rules using PySpark ensures that when a query runs against the Gold layer, the engineer doesn't have to write messy `WHERE` clauses to avoid bad data.</p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

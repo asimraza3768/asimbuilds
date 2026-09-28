@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I Used Amazon S3 for Raw Data Landing | Asim Raza</title>
+    <meta name="description" content="Explaining the architectural safety net of dumping raw API responses into cloud storage.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/s3-raw-landing.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">Why I Used Amazon S3 for Raw Data Landing</h1>
+                <div class="article-page-meta">September 28, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 3 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>When building my pipeline, it was tempting to extract data from the REST API, transform it in memory using pandas or PySpark, and write it directly to the Silver database. However, I intentionally chose to land the raw JSON in Amazon S3 first.</p>
+                <h2>Decoupling Extraction from Transformation</h2>
+                <p>By dumping the raw JSON into S3, I created an architectural safety net. If there is a bug in my PySpark transformation logic (e.g., failing to parse a nested array correctly), the Databricks job will fail.</p>
+                <p>Without S3, I would have to re-ping the API to get the data again. This wastes API rate limits and time. With S3, the raw data is safely stored on disk. I can fix my PySpark code and simply re-run the Bronze-to-Silver notebook using the existing data sitting in the S3 bucket.</p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

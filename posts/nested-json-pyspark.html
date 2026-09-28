@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What I Learned From Working With Nested JSON | Asim Raza</title>
+    <meta name="description" content="Practical transformation challenges and PySpark techniques when dealing with nested API data.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/nested-json-pyspark.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">What I Learned From Working With Nested JSON</h1>
+                <div class="article-page-meta">September 22, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 4 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>APIs rarely return data in a clean tabular format. When fetching job listings, the JSON payload often includes nested structures—for example, a `skills` array inside a `job_details` struct.</p>
+                <h2>Exploding Arrays in PySpark</h2>
+                <p>Relational databases and analytics tables require flat rows. In my Silver layer, I had to use PySpark's <code>explode()</code> function to turn arrays of skills into individual rows so they could be properly aggregated in the Gold layer.</p>
+                <p>This introduced a new challenge: exploding an array multiplies the number of rows. Suddenly, one job posting with five skills becomes five rows. Managing unique identifiers and ensuring joins remained accurate taught me the importance of careful schema design before jumping into PySpark transformations.</p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

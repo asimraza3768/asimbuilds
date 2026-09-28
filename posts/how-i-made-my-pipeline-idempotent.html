@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Made My Data Pipeline Idempotent | Asim Raza</title>
+    <meta name="description" content="Discussing MERGE-based upserts and how safe reruns prevent duplicate records.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/how-i-made-my-pipeline-idempotent.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">How I Made My Data Pipeline Idempotent</h1>
+                <div class="article-page-meta">October 12, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 4 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>When building my Job Market Intelligence Platform, I encountered a common engineering problem early on: what happens if the Databricks workflow is executed twice in the same day?</p>
+                <h2>The Duplicate Problem</h2>
+                <p>If you simply append API data into a Delta table, rerunning the pipeline will ingest the exact same job listings, ruining the accuracy of downstream analytics. You'll suddenly have double the demand for Python engineers simply because a task ran twice.</p>
+                <h2>The Solution: MERGE-Based Upserts</h2>
+                <p>To make the pipeline <strong>idempotent</strong> (meaning it can be run multiple times safely without altering the final state beyond the initial run), I implemented <code>MERGE INTO</code> logic in PySpark.</p>
+<pre><code># Conceptual logic used in the Silver layer
+deltaTable.alias("target").merge(
+    df_updates.alias("updates"),
+    "target.job_id = updates.job_id"
+).whenMatchedUpdateAll() \
+ .whenNotMatchedInsertAll() \
+ .execute()</code></pre>
+                <p>By matching on a unique <code>job_id</code>, the pipeline either updates existing records (if job details changed) or inserts new ones. Safe, reliable reruns are now built directly into the architecture.</p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

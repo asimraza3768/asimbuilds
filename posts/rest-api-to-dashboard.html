@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From REST API to Analytics Dashboard | Asim Raza</title>
+    <meta name="description" content="A high-level walkthrough of the complete engineering flow from JSON to Databricks AI/BI.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/rest-api-to-dashboard.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">From REST API to Analytics Dashboard</h1>
+                <div class="article-page-meta">September 30, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 6 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>Connecting a data source to a dashboard sounds simple until you actually try to build it reliably. Here is the exact path data takes in my Job Market project.</p>
+                <h2>The Extraction</h2>
+                <p>It starts with a Python script hitting the JobsPipe REST API. It handles cursor-based pagination to loop through all pages of results, extracting JSON data for 5 different cities, and pushes the raw payload to an Amazon S3 bucket.</p>
+                <h2>The Orchestration</h2>
+                <p>A Databricks Workflow (consisting of 4 distinct tasks/notebooks) kicks off. Task 1 pulls the raw S3 JSON into a Bronze Delta table. Task 2 performs PySpark transformations and data quality checks, upserting into the Silver layer.</p>
+                <h2>The Presentation</h2>
+                <p>Task 3 runs SQL queries to aggregate the Silver data into 6 distinct Gold tables (e.g., skill counts, location groupings). Finally, Databricks AI/BI connects directly to these Gold tables to render the interactive dashboard in under 3 total minutes of runtime.</p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

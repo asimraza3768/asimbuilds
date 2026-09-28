@@ -9,7 +9,7 @@ const blogPosts = [
         readTime: '5 min read',
         excerpt: 'Moving beyond tutorials and understanding the real complexities of data ingestion, quality validation, and modeling in production environments.',
         url: 'posts/what-i-learned-from-building-an-end-to-end-data-pipeline.html',
-        isFeatured: true
+        isFeatured: false
     },
     {
         id: 'busy-vs-moving',
@@ -31,6 +31,116 @@ const blogPosts = [
         readTime: '1 min read',
         excerpt: 'A few lines about distance, patience, and trusting the process when the road ahead is not entirely clear.',
         url: 'posts/short-note-about-time.html',
+        isFeatured: false
+    },
+    {
+        id: 'idempotent-pipelines',
+        title: 'How I Made My Data Pipeline Idempotent',
+        category: 'Data Engineering',
+        date: 'October 12, 2026',
+        timestamp: 1791782400000,
+        readTime: '4 min read',
+        excerpt: 'Discussing MERGE-based upserts and how safe reruns prevent duplicate records from polluting analytics tables.',
+        url: 'posts/how-i-made-my-pipeline-idempotent.html',
+        isFeatured: true
+    },
+    {
+        id: 'bronze-silver-gold',
+        title: 'Bronze vs Silver vs Gold: What I Learned Building My Pipeline',
+        category: 'Data Engineering',
+        date: 'October 10, 2026',
+        timestamp: 1791609600000,
+        readTime: '5 min read',
+        excerpt: 'Moving beyond theory to explain the practical purpose and strict isolation of each layer in a Medallion architecture.',
+        url: 'posts/bronze-vs-silver-vs-gold.html',
+        isFeatured: false
+    },
+    {
+        id: 'api-failure-handling',
+        title: 'What Happens When an API Fails Mid-Pipeline?',
+        category: 'Data Engineering',
+        date: 'October 8, 2026',
+        timestamp: 1791436800000,
+        readTime: '3 min read',
+        excerpt: 'Discussing fail-fast handling, raising exceptions, and preventing incomplete data from flowing downstream.',
+        url: 'posts/api-failure-handling.html',
+        isFeatured: false
+    },
+    {
+        id: 'data-quality-checks',
+        title: 'Why Data Quality Checks Matter Before Analytics',
+        category: 'Data Engineering',
+        date: 'October 5, 2026',
+        timestamp: 1791177600000,
+        readTime: '4 min read',
+        excerpt: 'Exploring the six validation categories used in my project to ensure analytics-ready data.',
+        url: 'posts/data-quality-checks.html',
+        isFeatured: false
+    },
+    {
+        id: 'incremental-pipelines',
+        title: 'Building Incremental Data Pipelines with Databricks',
+        category: 'Data Engineering',
+        date: 'October 2, 2026',
+        timestamp: 1790918400000,
+        readTime: '5 min read',
+        excerpt: 'How to process only new job data without rebuilding the entire massive dataset on every workflow run.',
+        url: 'posts/incremental-pipelines.html',
+        isFeatured: false
+    },
+    {
+        id: 'rest-api-to-dashboard',
+        title: 'From REST API to Analytics Dashboard',
+        category: 'Data Engineering',
+        date: 'September 30, 2026',
+        timestamp: 1790745600000,
+        readTime: '6 min read',
+        excerpt: 'A high-level walkthrough of the complete engineering flow from JSON extraction to Databricks AI/BI.',
+        url: 'posts/rest-api-to-dashboard.html',
+        isFeatured: false
+    },
+    {
+        id: 's3-raw-landing',
+        title: 'Why I Used Amazon S3 for Raw Data Landing',
+        category: 'Data Engineering',
+        date: 'September 28, 2026',
+        timestamp: 1790572800000,
+        readTime: '3 min read',
+        excerpt: 'Explaining the architectural safety net of dumping raw API responses into cloud storage before transformation.',
+        url: 'posts/s3-raw-landing.html',
+        isFeatured: false
+    },
+    {
+        id: 'nested-json-pyspark',
+        title: 'What I Learned From Working With Nested JSON',
+        category: 'Data Engineering',
+        date: 'September 22, 2026',
+        timestamp: 1790054400000,
+        readTime: '4 min read',
+        excerpt: 'Practical transformation challenges and PySpark techniques when dealing with deeply nested API data.',
+        url: 'posts/nested-json-pyspark.html',
+        isFeatured: false
+    },
+    {
+        id: 'gold-tables-analytics',
+        title: 'Designing Analytics-Ready Data With Gold Tables',
+        category: 'Data Engineering',
+        date: 'September 18, 2026',
+        timestamp: 1789708800000,
+        readTime: '4 min read',
+        excerpt: 'How heavily transformed, validated, and aggregated data becomes genuinely useful for business dashboards.',
+        url: 'posts/gold-tables-analytics.html',
+        isFeatured: false
+    },
+    {
+        id: 'future-pipeline-improvements',
+        title: 'What I Would Improve in My Data Pipeline Next',
+        category: 'Data Engineering',
+        date: 'September 15, 2026',
+        timestamp: 1789449600000,
+        readTime: '3 min read',
+        excerpt: 'A look at realistic future feature additions, including automated retries, scheduling, and better observability.',
+        url: 'posts/future-pipeline-improvements.html',
         isFeatured: false
     }
 ];

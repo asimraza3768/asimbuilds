@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What I Would Improve in My Data Pipeline Next | Asim Raza</title>
+    <meta name="description" content="A look at realistic future feature additions, including automated retries and scheduling.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/future-pipeline-improvements.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">What I Would Improve in My Data Pipeline Next</h1>
+                <div class="article-page-meta">September 15, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 3 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>Building the Job Market Intelligence Platform taught me a lot about data quality and medallion architecture. But engineering is an iterative process, and there are several areas I plan to improve as the project scales.</p>
+                <h2>1. Automated Retries</h2>
+                <p>Currently, the pipeline uses fail-fast handling for API errors, raising an exception immediately. While safe, a better future approach would be wrapping the API calls in a retry block (e.g., using Python's `Tenacity` library) with exponential backoff before ultimately failing.</p>
+                <h2>2. Workflow Scheduling</h2>
+                <p>The Databricks workflow currently runs in under 3 minutes, but it is triggered manually. My next step is to configure a CRON schedule within Databricks to execute the pipeline nightly without human intervention.</p>
+                <h2>3. Better Observability</h2>
+                <p>Right now, I rely on Databricks task logs to monitor runs. In the future, I want to integrate Slack or Email alerting so I am notified proactively if the Bronze landing zone receives 0 rows or if data quality checks fail abnormally high in the Silver layer.</p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>

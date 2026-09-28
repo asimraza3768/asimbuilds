@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing Analytics-Ready Data With Gold Tables | Asim Raza</title>
+    <meta name="description" content="How heavily transformed and aggregated data becomes genuinely useful for business dashboards.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/gold-tables-analytics.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">Designing Analytics-Ready Data With Gold Tables</h1>
+                <div class="article-page-meta">September 18, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 4 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>The Silver layer contains a clean, validated history of job postings. But if you connect a BI tool directly to Silver and ask it to calculate "The most in-demand skills by city over the last 30 days," the compute engine has to scan thousands of rows on the fly.</p>
+                <h2>Building the 6 Gold Tables</h2>
+                <p>To optimize the Databricks AI/BI dashboard, I created 6 specific Gold tables. These tables pre-aggregate the data. For example, instead of storing individual job rows, a <code>skill_demand_summary</code> table simply holds the skill name, the city, and the total count.</p>
+                <p>By doing the heavy computational lifting inside the Databricks Workflow overnight, the dashboard itself becomes lightning fast for the end-user, loading pre-calculated metrics instantly.</p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>
