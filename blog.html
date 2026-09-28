@@ -3,136 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes & Ideas | Asim Raza</title>
-    <meta name="description" content="A collection of things I am learning, thinking about, building and listening to.">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Writing | Asim Raza — Data Engineer</title>
+    <meta name="description" content="Writing by Asim Raza on data engineering, technology, career, life, poetry, music, books, and ideas worth exploring.">
+    <link rel="canonical" href="https://asimbuilds.dev/blog.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Georgia:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <!-- (Include your standard <header> here, exactly as it is in index.html, with the Blog link added) -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
+            </div>
+        </nav>
+    </header>
 
     <main>
-        <section class="section">
-            <div class="container" data-animate>
-                <div class="blog-header">
-                    <h1 class="blog-title">Notes & Ideas</h1>
-                    <p class="blog-subtitle">A collection of things I am learning, thinking about, building and listening to.</p>
-                </div>
+        <!-- Editorial Hero -->
+        <section class="blog-hero container">
+            <div class="reveal">
+                <span class="blog-hero-label">Editorial</span>
+                <h1 class="blog-hero-title">Ideas, lessons, and things worth writing down.</h1>
+                <p class="blog-hero-subtitle">A personal space for thoughts on data engineering, technology, career, life, poetry, music, books, and the ideas I find worth exploring.</p>
+            </div>
+        </section>
 
-                <div class="blog-controls">
+        <!-- Sticky Filters & Controls -->
+        <div class="blog-controls-container">
+            <div class="container blog-controls">
+                <div class="blog-filters">
+                    <button class="blog-filter-btn active" data-category="All">All</button>
+                    <button class="blog-filter-btn" data-category="Data Engineering">Data Engineering</button>
+                    <button class="blog-filter-btn" data-category="Technology">Technology</button>
+                    <button class="blog-filter-btn" data-category="Career">Career</button>
+                    <button class="blog-filter-btn" data-category="Thoughts">Thoughts</button>
+                    <button class="blog-filter-btn" data-category="Life">Life</button>
+                    <button class="blog-filter-btn" data-category="Poetry">Poetry</button>
+                    <button class="blog-filter-btn" data-category="Music">Music</button>
+                    <button class="blog-filter-btn" data-category="Books">Books</button>
+                </div>
+                <div class="blog-actions">
                     <div class="blog-search-wrapper">
-                        <input type="text" id="blogSearch" class="blog-search" placeholder="Search articles, categories, or keywords..." aria-label="Search articles">
+                        <span class="blog-search-icon">🔍</span>
+                        <input type="text" id="blog-search" class="blog-search" placeholder="Search articles..." aria-label="Search articles">
                     </div>
-                    <div class="blog-categories" id="blogCategories">
-                        <!-- Categories injected via JS -->
-                    </div>
+                    <select id="blog-sort" class="blog-sort" aria-label="Sort articles">
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                    </select>
                 </div>
+            </div>
+        </div>
 
-                <div class="blog-grid" id="blogGrid">
-                    <!-- Cards injected via JS -->
-                </div>
-                
-                <div class="text-center">
-                    <button id="loadMoreBtn" class="btn btn-outline" style="display: none;">Load More Articles</button>
-                </div>
+        <!-- Featured Article (Injected by JS if applicable) -->
+        <section class="container featured-article-container" id="featured-article-container">
+            <!-- Rendered via posts.js -->
+        </section>
+
+        <!-- Article Grid -->
+        <section class="container editorial-grid">
+            <div id="blog-empty-state" class="blog-empty-state hidden">
+                <h3>No articles found</h3>
+                <p>Try adjusting your search or category filter.</p>
+            </div>
+            <div class="grid-3" id="article-grid">
+                <!-- Rendered via posts.js -->
             </div>
         </section>
     </main>
 
-    <!-- (Include your standard <footer> here, exactly as it is in index.html, with the Blog link added) -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 2rem;">
+                <span>&copy; 2026 Asim Raza. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
     <script src="posts.js"></script>
-    <script>
-        // Static Blog Engine
-        document.addEventListener('DOMContentLoaded', () => {
-            const grid = document.getElementById('blogGrid');
-            const searchInput = document.getElementById('blogSearch');
-            const catContainer = document.getElementById('blogCategories');
-            const loadMoreBtn = document.getElementById('loadMoreBtn');
-            
-            let visibleCount = 9;
-            let currentCategory = 'All';
-            let currentSearch = '';
-
-            // Extract unique categories
-            const categories = ['All', ...new Set(blogPosts.map(p => p.category))];
-            
-            // Render category buttons
-            categories.forEach(cat => {
-                const btn = document.createElement('button');
-                btn.className = `filter-btn ${cat === 'All' ? 'active' : ''}`;
-                btn.textContent = cat;
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('#blogCategories .filter-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentCategory = cat;
-                    visibleCount = 9; // Reset pagination
-                    renderPosts();
-                });
-                catContainer.appendChild(btn);
-            });
-
-            // Handle Search
-            searchInput.addEventListener('input', (e) => {
-                currentSearch = e.target.value.toLowerCase();
-                visibleCount = 9; // Reset pagination
-                renderPosts();
-            });
-
-            // Handle Load More
-            loadMoreBtn.addEventListener('click', () => {
-                visibleCount += 9;
-                renderPosts();
-            });
-
-            function renderPosts() {
-                grid.innerHTML = '';
-                
-                // Filter
-                let filtered = blogPosts.filter(post => {
-                    const matchesCat = currentCategory === 'All' || post.category === currentCategory;
-                    const matchesSearch = post.title.toLowerCase().includes(currentSearch) || 
-                                          post.excerpt.toLowerCase().includes(currentSearch) ||
-                                          post.category.toLowerCase().includes(currentSearch);
-                    return matchesCat && matchesSearch;
-                });
-
-                // Sort (Latest first based on ID or date parsing)
-                filtered.sort((a, b) => b.id - a.id);
-
-                // Slice for pagination
-                const paginated = filtered.slice(0, visibleCount);
-
-                if (paginated.length === 0) {
-                    grid.innerHTML = '<p class="text-center" style="grid-column: 1/-1;">No articles found.</p>';
-                }
-
-                paginated.forEach((post, index) => {
-                    // Check if it should be featured (only if it's the first item, we're on 'All', and not searching)
-                    const isFeatured = post.featured && index === 0 && currentCategory === 'All' && currentSearch === '';
-                    
-                    const card = document.createElement('article');
-                    card.className = `blog-card ${isFeatured ? 'featured-post' : ''}`;
-                    card.innerHTML = `
-                        <div class="blog-card-meta">
-                            <span class="blog-card-category">${post.category}</span>
-                            <span class="blog-card-date">${post.date} &middot; ${post.readingTime}</span>
-                        </div>
-                        <h3 class="blog-card-title"><a href="${post.url}">${post.title}</a></h3>
-                        <p class="blog-card-excerpt">${post.excerpt}</p>
-                        <a href="${post.url}" class="read-more">Read Article &rarr;</a>
-                    `;
-                    grid.appendChild(card);
-                });
-
-                // Handle Load More visibility
-                loadMoreBtn.style.display = filtered.length > visibleCount ? 'inline-flex' : 'none';
-            }
-
-            renderPosts();
-        });
-    </script>
 </body>
 </html>

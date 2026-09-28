@@ -1,273 +1,267 @@
-const certificateData = [
-    // --- TIER 1: High Data Engineering Relevance ---
-    {
-        id: "associate-data-engineer",
-        title: "Associate Data Engineer",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate of Associate Data Engineer by Datacamp-1.png",
-        summary: "Built foundational data engineering knowledge across data ingestion, transformation, storage, databases, and engineering workflows."
-    },
-    {
-        id: "data-engineer-in-python",
+const certificatesData = {
+    // -------------------------
+    // DataCamp - Data Engineering & Pipelines
+    // -------------------------
+    "datacamp-data-eng-python": {
         title: "Data Engineer in Python",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of Data Engineer in Python by Datacamp-1.png",
-        summary: "Applied Python concepts to data engineering tasks including data ingestion, transformation, processing, and working with real datasets."
+        description: "End-to-end Python data engineering, covering data ingestion, cleaning, and software engineering principles.",
+        file: "Certificate of Data Engineer in Python by Datacamp.pdf"
     },
-    {
-        id: "associate-data-engineer-in-sql",
+    "datacamp-assoc-data-eng-sql": {
         title: "Associate Data Engineer in SQL",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of Associate Data Engineer in SQL by Datacamp-1.png",
-        summary: "Developed practical SQL skills for querying, transforming, joining, and analyzing data in data engineering contexts."
+        description: "Comprehensive training on database design, relational databases, and writing optimized SQL queries.",
+        file: "Certificate of Associate Data Engineer in SQL by Datacamp.pdf"
     },
-    {
-        id: "etl-and-elt-in-python",
-        title: "ETL and ELT in Python",
+    "datacamp-assoc-data-eng": {
+        title: "Associate Data Engineer",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of ETL and ELT in Python by Datacamp-1.png",
-        summary: "Learned how to extract, transform, and load data using Python while understanding ETL and ELT workflows."
+        description: "Foundations of data engineering including ETL/ELT pipelines, cloud concepts, and distributed processing.",
+        file: "Certificate of Associate Data Engineer by Datacamp.pdf"
     },
-    {
-        id: "data-warehousing-concepts",
-        title: "Data Warehousing Concepts",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate Data Warehousing Concepts by Datacamp-1.png",
-        summary: "Learned core data warehouse concepts including analytical data structures, dimensional modeling, and warehouse architecture."
-    },
-    {
-        id: "database-design",
-        title: "Database Design",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate Database Design Datacamp-1.png",
-        summary: "Learned principles for designing structured databases including tables, relationships, keys, and data organization."
-    },
-    {
-        id: "apache-airflow-in-python",
+    "datacamp-airflow": {
         title: "Introduction to Apache Airflow in Python",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of Introduction to Apache Airflow in Python by Datacamp-1.png",
-        summary: "Learned Airflow fundamentals including DAGs, tasks, dependencies, and workflow orchestration."
+        description: "Building and orchestrating data pipelines using Apache Airflow.",
+        file: "Certificate of Introduction to Apache Airflow in Python by Datacamp.pdf"
     },
-    {
-        id: "intermediate-sql",
-        title: "Intermediate SQL",
+    "datacamp-etl-elt": {
+        title: "ETL and ELT in Python",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of Intermediate SQL BY DataCamp-1.png",
-        summary: "Learned more advanced SQL techniques for querying, transforming, and analyzing relational data."
+        description: "Designing and implementing Extraction, Transformation, and Loading pipelines.",
+        file: "Certificate of ETL and ELT in Python by Datacamp.pdf"
     },
-    {
-        id: "introduction-to-sql",
-        title: "Introduction to SQL",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate Introduction to SQL by Datacamp-1.png",
-        summary: "Learned SQL fundamentals including SELECT queries, filtering, sorting, aggregation, and basic data analysis."
-    },
-    {
-        id: "joining-data-in-sql",
-        title: "Joining Data in SQL",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate Joining Data in SQL by Datacamp-1.png",
-        summary: "Learned how to combine data across tables using joins and work with relational datasets effectively."
-    },
-    {
-        id: "relational-databases-in-sql",
-        title: "Introduction to Relational Databases in SQL",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate of Introduction to Relational Databases in SQL BY Datacamp-1.png",
-        summary: "Learned relational database concepts, tables, relationships, and how SQL is used to query structured data."
-    },
-    {
-        id: "apis-in-python",
-        title: "Introduction to APIs in Python",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate of Introduction to APIs in Python by Datacamp-1.png",
-        summary: "Learned how to work with APIs in Python, send requests, handle responses, and retrieve external data."
-    },
-    {
-        id: "cloud-computing",
-        title: "Understanding Cloud Computing",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate of Understanding Cloud Computing by Datacamp-1.png",
-        summary: "Learned core cloud computing concepts including cloud infrastructure, services, scalability, and common cloud architectures."
-    },
-    {
-        id: "streamlined-data-ingestion-pandas",
+    "datacamp-pandas-ingest": {
         title: "Streamlined Data Ingestion with pandas",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of Streamlined Data Ingestion with pandas-1.png",
-        summary: "Learned how to efficiently ingest and process datasets using pandas for data engineering workflows."
+        description: "Efficient data extraction from APIs, JSON, and databases using pandas.",
+        file: "Certificate of Streamlined Data Ingestion with pandas.pdf"
     },
-    {
-        id: "cleaning-data-in-python",
+    "datacamp-data-warehouse": {
+        title: "Data Warehousing Concepts",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Core concepts of designing and managing enterprise data warehouses.",
+        file: "Certificate Data Warehousing Concepts by Datacamp.pdf"
+    },
+    "datacamp-understanding-de": {
+        title: "Understanding Data Engineering",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "High-level overview of data engineering architecture and modern data stacks.",
+        file: "Certificate of Understanding Data Enginnering.pdf"
+    },
+    "datacamp-cloud-computing": {
+        title: "Understanding Cloud Computing",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Fundamentals of cloud platforms, scalable infrastructure, and storage solutions.",
+        file: "Certificate of Understanding Cloud Computing by Datacamp.pdf"
+    },
+
+    // -------------------------
+    // DataCamp - Python & APIs
+    // -------------------------
+    "datacamp-api-intro": {
+        title: "Introduction to APIs in Python",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Extracting data from REST APIs using Python requests and JSON parsing.",
+        file: "Certificate of Introduction to APIs in Python by Datacamp.pdf"
+    },
+    "datacamp-python-clean": {
         title: "Cleaning Data in Python",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of Cleaning Data in Python by Datacamp-1.png",
-        summary: "Learned techniques for identifying missing values, inconsistencies, duplicates, and other data quality problems."
+        description: "Techniques for handling missing data, standardizing formats, and data quality checks.",
+        file: "Certificate of Cleaning Data in Python by Datacamp.pdf"
     },
-    {
-        id: "understanding-data-engineering",
-        title: "Understanding Data Engineering",
-        provider: "IBM / Coursera",
-        category: "coursera",
-        file: "assets/certificates/Certificate of Understanding Data Enginnering-1.png",
-        summary: "Learned the role of data engineering, data pipelines, ETL processes, data architecture, storage systems, and the data engineering lifecycle."
-    },
-
-    // --- TIER 2: Strong Supporting Technical ---
-    {
-        id: "intermediate-python-for-developers",
-        title: "Intermediate Python for Developers",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate of Intermediate Python for Developers by Datacamp-1.png",
-        summary: "Strengthened Python skills through more advanced programming concepts and writing cleaner reusable code."
-    },
-    {
-        id: "introduction-to-python-for-developers",
-        title: "Introduction to Python for Developers",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate of Introduction to Python for Developers by Datacamp-1.png",
-        summary: "Learned Python fundamentals including variables, functions, control flow, data structures, and reusable code."
-    },
-    {
-        id: "importing-data-in-python",
-        title: "Introduction to Importing Data in Python",
-        provider: "DataCamp",
-        category: "datacamp",
-        file: "assets/certificates/Certificate of Introduction to Importing Data in Python By Datacamp-1.png",
-        summary: "Learned how to load data from common file formats and work with imported datasets using Python."
-    },
-    {
-        id: "writing-efficient-python-code",
+    "datacamp-python-efficient": {
         title: "Writing Efficient Python Code",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/certificate of Writing Efficient Python Code by Datacamp-1.png",
-        summary: "Learned techniques for improving Python code efficiency, performance, readability, and resource usage."
+        description: "Optimizing code performance, profiling, and efficient data structures.",
+        file: "certificate of Writing Efficient Python Code by Datacamp.pdf"
     },
-    {
-        id: "software-engineering-principles-in-python",
+    "datacamp-python-software": {
         title: "Software Engineering Principles in Python",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of Software Engineering Principles in Python by Datacamp-1.png",
-        summary: "Learned software engineering practices such as modular code, testing, maintainability, and writing reliable Python applications."
+        description: "Modularity, documentation, and testing for production-level Python code.",
+        file: "Certificate of Software Engineering Principles in Python by Datacamp.pdf"
     },
-    {
-        id: "intermediate-git",
-        title: "Intermediate Git",
+    "datacamp-python-dev-intro": {
+        title: "Introduction to Python for Developers",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of Intermediate Git by Datacamp-1.png",
-        summary: "Learned branching strategies, merging, resolving conflicts, and working with Git more effectively in development workflows."
+        description: "Core Python programming fundamentals for software developers.",
+        file: "Certificate of Introduction to Python for Developers by Datacamp.pdf"
     },
-    {
-        id: "introduction-to-git",
-        title: "Introduction to Git",
+    "datacamp-python-dev-inter": {
+        title: "Intermediate Python for Developers",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of Introduction to Git by Datacamp-1.png",
-        summary: "Learned Git fundamentals including repositories, commits, branches, and version control workflows."
+        description: "Advanced data structures, error handling, and object-oriented programming.",
+        file: "Certificate of Intermediate Python for Developers by Datacamp.pdf"
     },
-    {
-        id: "introduction-to-snowflake-sql",
+    "datacamp-python-import-intro": {
+        title: "Introduction to Importing Data in Python",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Importing data from flat files, Excel, databases, and standard formats.",
+        file: "Certificate of Introduction to Importing Data in Python By Datacamp.pdf"
+    },
+    "datacamp-python-import-inter": {
+        title: "Intermediate Importing Data in Python",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Connecting to diverse data sources and interacting with web data.",
+        file: "Certificate of Intermediate Importing Data in Python by Datacamp.pdf"
+    },
+
+    // -------------------------
+    // DataCamp - SQL & Databases
+    // -------------------------
+    "datacamp-sql-intro": {
+        title: "Introduction to SQL",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Fundamental SQL querying, filtering, and data extraction.",
+        file: "Certificate Introduction to SQL by Datacamp.pdf"
+    },
+    "datacamp-sql-inter": {
+        title: "Intermediate SQL",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Advanced aggregations, window functions, and complex querying.",
+        file: "Certificate of Intermediate SQL BY DataCamp.pdf"
+    },
+    "datacamp-sql-join": {
+        title: "Joining Data in SQL",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Mastering INNER, OUTER, LEFT, and advanced table joins.",
+        file: "Certificate Joining Data in SQL by Datacamp.pdf"
+    },
+    "datacamp-sql-relational": {
+        title: "Introduction to Relational Databases in SQL",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Understanding relational models, primary keys, and foreign constraints.",
+        file: "Certificate of Introduction to Relational Databases in SQL BY Datacamp.pdf"
+    },
+    "datacamp-db-design": {
+        title: "Database Design",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Normalization, schema design, and structuring robust databases.",
+        file: "Certificate Database Design Datacamp.pdf"
+    },
+    "datacamp-snowflake": {
         title: "Introduction to Snowflake SQL",
         provider: "DataCamp",
         category: "datacamp",
-        file: "assets/certificates/Certificate of Introduction to Snowflake SQL by Datacamp-1.png",
-        summary: "Learned how to use SQL concepts within Snowflake for querying and working with cloud data."
+        description: "Cloud data warehousing concepts specific to Snowflake architecture.",
+        file: "Certificate of Introduction to Snowflake SQL by Datacamp.pdf"
     },
 
-    // --- TIER 3: Analytics & Simulations ---
-    {
-        id: "data-analytics-job-simulation",
-        title: "Data Analytics Job Simulation",
-        provider: "Deloitte",
-        category: "deloitte",
-        file: "assets/certificates/Certificate Data Analytics Job Simulation by Deloitte-1.png",
-        summary: "Practiced data analysis, interpreting datasets, identifying insights, and presenting analytical findings."
+    // -------------------------
+    // DataCamp - Version Control
+    // -------------------------
+    "datacamp-git-intro": {
+        title: "Introduction to Git",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Version control fundamentals, committing, and repositories.",
+        file: "Certificate of Introduction to Git by Datacamp.pdf"
     },
-    {
-        id: "technology-job-simulation",
+    "datacamp-git-inter": {
+        title: "Intermediate Git",
+        provider: "DataCamp",
+        category: "datacamp",
+        description: "Branching, merging, conflict resolution, and collaborative workflows.",
+        file: "Certificate of Intermediate Git by Datacamp.pdf"
+    },
+
+    // -------------------------
+    // Job Simulations (Deloitte & BCG)
+    // -------------------------
+    "deloitte-tech": {
         title: "Technology Job Simulation",
         provider: "Deloitte",
         category: "deloitte",
-        file: "assets/certificates/Certificate of Technology Job Simulation by Deloitte-1.png",
-        summary: "Practiced technology consulting tasks including technical problem solving, analysis, and communicating technology-related findings."
+        description: "Practical simulation covering technology consulting, cloud engineering, and system architecture.",
+        file: "Certificate of Technology Job Simulation by Deloitte.pdf"
     },
-    {
-        id: "data-science-job-simulation",
+    "deloitte-analytics": {
+        title: "Data Analytics Job Simulation",
+        provider: "Deloitte",
+        category: "deloitte",
+        description: "Hands-on data analytics exercises focusing on business intelligence and data processing.",
+        file: "Certificate Data Analytics Job Simulation by Deloitte.pdf"
+    },
+    "bcg-data": {
         title: "Data Science Job Simulation",
         provider: "BCG",
         category: "bcg",
-        file: "assets/certificates/ASIM RAZA data science by BCG Forage-1.png",
-        summary: "Applied data science techniques to a business problem including data preparation, analysis, and predictive modeling."
-    },
-    {
-        id: "statistical-analysis-for-researchers",
-        title: "Statistical Analysis of Data for Researchers",
-        provider: "Other",
-        category: "other",
-        file: "assets/certificates/Statistical Analysis of Data for Researchers-1.png",
-        summary: "Learned statistical concepts and techniques for analyzing datasets and interpreting research findings."
-    },
-    {
-        id: "python-for-data-science-ai",
-        title: "Python for Data Science, AI & Development",
-        provider: "IBM / Coursera",
-        category: "coursera",
-        file: "assets/certificates/Python for Data Science, AI  Development-1.png",
-        summary: "Learned Python programming for data work including data structures, functions, libraries, APIs, and working with datasets."
-    },
-    {
-        id: "python-project-data-engineering",
-        title: "Python Project for Data Engineering",
-        provider: "IBM / Coursera",
-        category: "coursera",
-        file: "assets/certificates/Python project of Data engineering-1.png",
-        summary: "Applied Python to a practical data engineering workflow involving data collection, processing, transformation, and storage."
+        description: "Practical tasks related to data manipulation, exploratory data analysis, and deriving business insights.",
+        file: "ASIM RAZA data science by BCG Forage.pdf"
     },
 
-    // --- TIER 4: General Professional ---
-    {
-        id: "business-communications",
-        title: "Business Communications",
-        provider: "Other",
-        category: "other",
-        file: "assets/certificates/Business Communications-1.png",
-        summary: "Developed professional communication skills including clear written communication, workplace interaction, and presenting information effectively."
+    // -------------------------
+    // IBM & Coursera
+    // -------------------------
+    "ibm-python": {
+        title: "Python for Data Science, AI & Development",
+        provider: "IBM",
+        category: "ibm",
+        description: "Fundamental Python programming for data manipulation and working with APIs.",
+        file: "Python for Data Science, AI & Development.pdf"
     },
-    {
-        id: "management",
-        title: "Management",
-        provider: "Other",
-        category: "other",
-        file: "assets/certificates/Management-1.png",
-        summary: "Learned foundational management concepts including planning, organization, coordination, and managing responsibilities effectively."
-    },
-    {
-        id: "coursera-colorado",
-        title: "Coursera Colorado Certificate",
+    "coursera-colorado": {
+        title: "Coursera Certificate",
         provider: "Coursera",
-        category: "coursera",
-        file: "assets/certificates/Coursera colorado certificate-1.png",
-        summary: "Completed coursework aligned with the Colorado certificate program requirements."
+        category: "ibm", // Grouped with IBM/Coursera
+        description: "Academic coursework completion via the Coursera platform.",
+        file: "Coursera colorado certificate.pdf"
+    },
+
+    // -------------------------
+    // Academic & Other
+    // -------------------------
+    "other-stats": {
+        title: "Statistical Analysis of Data for Researchers",
+        provider: "Academic",
+        category: "other",
+        description: "Core statistical methods for analyzing and interpreting complex datasets.",
+        file: "Statistical Analysis of Data for Researchers.pdf"
+    },
+    "other-management": {
+        title: "Management",
+        provider: "Academic",
+        category: "other",
+        description: "Understanding organizational structures and professional management principles.",
+        file: "Management.pdf"
+    },
+    "other-comm": {
+        title: "Business Communications",
+        provider: "Academic",
+        category: "other",
+        description: "Principles of professional and technical communication.",
+        file: "Business Communications.pdf"
+    },
+    "other-python-proj": {
+        title: "Python Project of Data Engineering",
+        provider: "Academic",
+        category: "other",
+        description: "Practical academic project demonstrating Python-based data engineering skills.",
+        file: "Python project of Data engineering.pdf"
     }
-];
+};

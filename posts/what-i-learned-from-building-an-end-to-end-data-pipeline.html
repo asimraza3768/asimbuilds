@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What I Learned From Building an End-to-End Data Pipeline | Asim Raza</title>
+    <meta name="description" content="Moving beyond tutorials and understanding the real complexities of data ingestion, quality validation, and modeling in production environments.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/what-i-learned-from-building-an-end-to-end-data-pipeline.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    
+    <!-- JSON-LD SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "What I Learned From Building an End-to-End Data Pipeline",
+      "author": {
+        "@type": "Person",
+        "name": "Asim Raza"
+      },
+      "datePublished": "2026-09-27",
+      "description": "Moving beyond tutorials and understanding the real complexities of data ingestion, quality validation, and modeling in production environments."
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions">
+                <a href="../blog.html" class="btn btn-secondary">← Back to Writing</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Data Engineering</span>
+                <h1 class="article-page-title">What I Learned From Building an End-to-End Data Pipeline</h1>
+                <div class="article-page-meta">September 27, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 5 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p><strong>Moving beyond tutorials is one of the hardest transitions in data engineering.</strong> When building the Job Market Intelligence Platform, I quickly realized that real-world data doesn't look like the perfectly clean CSV files used in academic courses.</p>
+                
+                <h2>1. APIs Fail, Plan for It</h2>
+                <p>When extracting data via REST APIs, you cannot assume a <code>200 OK</code> response every time. Implementing robust pagination logic with cursor handling and exponential backoff for rate limits became a strict necessity, not just a "nice-to-have" feature.</p>
+                
+                <h2>2. The Value of the Medallion Architecture</h2>
+                <p>Dumping raw JSON straight into analytics tables is a disaster waiting to happen. Using AWS S3 as a landing zone, and then progressing data through Bronze, Silver, and Gold layers in Databricks ensured that if a transformation logic failed, I didn't have to re-pull the data from the API. I could just re-process from the Bronze layer.</p>
+
+                <blockquote>
+                    "Building a pipeline isn't just about moving data from A to B—it's about ensuring data integrity at every step."
+                </blockquote>
+
+                <h2>3. Data Quality is Everything</h2>
+                <p>Duplicates are inevitable. Missing fields are standard. Writing PySpark transformations that actively check for required fields and handle schema drift safely was the most time-consuming but valuable part of the project.</p>
+                
+                <pre><code># Example conceptual validation check
+df_silver = df_bronze.filter(
+    (col("job_id").isNotNull()) & 
+    (col("salary").cast("int") > 0)
+).dropDuplicates(["job_id"])</code></pre>
+
+                <p>Building this pipeline taught me that data engineering isn't just about moving data—it's about moving data <em>reliably</em>.</p>
+            </div>
+        </article>
+
+        <!-- Related Articles -->
+        <section class="related-articles">
+            <div class="container">
+                <h3 class="related-header">Related Writing</h3>
+                <div class="grid-2" style="max-width: 900px; margin: 0 auto;">
+                    <div class="editorial-card">
+                        <span class="category-Thoughts" style="font-size:0.8rem;">Thoughts</span>
+                        <h4 style="font-size: 1.1rem; margin: 0.5rem 0 1rem;">The Difference Between Being Busy and Moving Forward</h4>
+                        <a href="busy-vs-moving-forward.html" class="read-more" style="margin-top:auto; padding-top:0;">Read Article <span class="read-more-arrow">→</span></a>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 4rem;">
+                    <a href="../blog.html" class="btn btn-secondary">← Back to Writing</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

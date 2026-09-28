@@ -1,35 +1,159 @@
+// Blog Posts Data
 const blogPosts = [
     {
-        id: 1,
-        title: "What I Learned From Building an End-to-End Data Pipeline",
-        slug: "building-end-to-end-data-pipeline",
-        category: "Data Engineering",
-        date: "September 27, 2026",
-        readingTime: "5 min read",
-        excerpt: "Moving beyond tutorials and understanding the real complexities of data ingestion, quality validation, and modeling in production environments.",
-        featured: true,
-        url: "posts/building-end-to-end-data-pipeline.html"
+        id: 'what-i-learned-pipeline',
+        title: 'What I Learned From Building an End-to-End Data Pipeline',
+        category: 'Data Engineering',
+        date: 'September 27, 2026',
+        timestamp: 1790476800000,
+        readTime: '5 min read',
+        excerpt: 'Moving beyond tutorials and understanding the real complexities of data ingestion, quality validation, and modeling in production environments.',
+        url: 'posts/what-i-learned-from-building-an-end-to-end-data-pipeline.html',
+        isFeatured: true
     },
     {
-        id: 2,
-        title: "The Difference Between Being Busy and Moving Forward",
-        slug: "busy-vs-moving-forward",
-        category: "Thoughts",
-        date: "September 25, 2026",
-        readingTime: "3 min read",
-        excerpt: "A short reflection on productivity, avoiding burnout, and the subtle difference between mere movement and meaningful progress.",
-        featured: false,
-        url: "posts/busy-vs-moving-forward.html"
+        id: 'busy-vs-moving',
+        title: 'The Difference Between Being Busy and Moving Forward',
+        category: 'Thoughts',
+        date: 'September 25, 2026',
+        timestamp: 1790304000000,
+        readTime: '3 min read',
+        excerpt: 'A short reflection on productivity, avoiding burnout, and the subtle difference between mere movement and meaningful progress.',
+        url: 'posts/busy-vs-moving-forward.html',
+        isFeatured: false
     },
     {
-        id: 3,
-        title: "A Short Note About Time",
-        slug: "short-note-about-time",
-        category: "Poetry",
-        date: "September 20, 2026",
-        readingTime: "1 min read",
-        excerpt: "A few lines about distance, patience, and trusting the process when the road ahead isn't entirely clear.",
-        featured: false,
-        url: "posts/short-note-about-time.html"
+        id: 'note-about-time',
+        title: 'A Short Note About Time',
+        category: 'Poetry',
+        date: 'September 20, 2026',
+        timestamp: 1789872000000,
+        readTime: '1 min read',
+        excerpt: 'A few lines about distance, patience, and trusting the process when the road ahead is not entirely clear.',
+        url: 'posts/short-note-about-time.html',
+        isFeatured: false
     }
 ];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('article-grid');
+    const featuredContainer = document.getElementById('featured-article-container');
+    const emptyState = document.getElementById('blog-empty-state');
+    
+    // Check if we are on the blog page
+    if (!grid) return;
+
+    const filterBtns = document.querySelectorAll('.blog-filter-btn');
+    const searchInput = document.getElementById('blog-search');
+    const sortSelect = document.getElementById('blog-sort');
+
+    let currentCategory = 'All';
+    let searchQuery = '';
+    let sortOrder = 'newest';
+
+    const renderPosts = () => {
+        // Filter
+        let filtered = blogPosts.filter(post => {
+            const matchCategory = currentCategory === 'All' || post.category === currentCategory;
+            const matchSearch = post.title.toLowerCase().includes(searchQuery) || 
+                                post.excerpt.toLowerCase().includes(searchQuery) ||
+                                post.category.toLowerCase().includes(searchQuery);
+            return matchCategory && matchSearch;
+        });
+
+        // Sort
+        filtered.sort((a, b) => {
+            return sortOrder === 'newest' ? b.timestamp - a.timestamp : a.timestamp - b.timestamp;
+        });
+
+        // Determine if Featured should show
+        // Only show featured layout if we are viewing "All", no search query, and default sort
+        const showFeatured = (currentCategory === 'All' && searchQuery === '' && sortOrder === 'newest' && filtered.length > 0);
+        
+        featuredContainer.innerHTML = '';
+        grid.innerHTML = '';
+        emptyState.style.display = 'none';
+
+        if (filtered.length === 0) {
+            emptyState.style.display = 'block';
+            return;
+        }
+
+        let gridPosts = filtered;
+
+        if (showFeatured) {
+            const featuredPost = filtered.find(p => p.isFeatured) || filtered[0];
+            gridPosts = filtered.filter(p => p.id !== featuredPost.id);
+            
+            const categoryClass = `category-${featuredPost.category.replace(/\s+/g, '-')}`;
+            
+            featuredContainer.innerHTML = `
+                <div class="featured-card reveal">
+                    <div class="article-meta">
+                        <span class="${categoryClass}">${featuredPost.category}</span>
+                        <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span>
+                        <span>${featuredPost.date} · ${featuredPost.readTime}</span>
+                    </div>
+                    <h2>${featuredPost.title}</h2>
+                    <p class="article-excerpt">${featuredPost.excerpt}</p>
+                    <a href="${featuredPost.url}" class="read-more">Read Article <span class="read-more-arrow">→</span></a>
+                </div>
+            `;
+        }
+
+        // Render Grid
+        gridPosts.forEach((post, index) => {
+            const delay = `delay-${(index % 3) + 1}`;
+            const categoryClass = `category-${post.category.replace(/\s+/g, '-')}`;
+            
+            const card = document.createElement('div');
+            card.className = `editorial-card reveal ${delay}`;
+            card.innerHTML = `
+                <div class="article-meta">
+                    <span class="${categoryClass}">${post.category}</span>
+                    <span>${post.date}</span>
+                </div>
+                <h3>${post.title}</h3>
+                <p class="article-excerpt">${post.excerpt}</p>
+                <a href="${post.url}" class="read-more">Read Article <span class="read-more-arrow">→</span></a>
+            `;
+            grid.appendChild(card);
+        });
+
+        // Re-trigger reveal animations for new elements
+        const newReveals = document.querySelectorAll('#article-grid .reveal, #featured-article-container .reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+        
+        newReveals.forEach(el => observer.observe(el));
+    };
+
+    // Event Listeners
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            currentCategory = e.target.getAttribute('data-category');
+            renderPosts();
+        });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase();
+        renderPosts();
+    });
+
+    sortSelect.addEventListener('change', (e) => {
+        sortOrder = e.target.value;
+        renderPosts();
+    });
+
+    // Initial render
+    renderPosts();
+});
