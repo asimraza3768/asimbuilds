@@ -21,6 +21,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="preload">
+    
+    <!-- PREMIUM DATA ENGINEERING LOADER -->
+    <div id="de-loader" class="de-loader" aria-live="polite" aria-atomic="true">
+        <div class="de-loader-content">
+            <div class="de-loader-brand">
+                <div class="de-loader-logo">ASIM BUILDS<span class="cursor">_</span></div>
+                <div class="de-loader-role">DATA ENGINEERING</div>
+            </div>
+            
+            <div class="de-loader-pipeline-wrapper">
+                <div class="de-pulse-track"><div class="de-pulse-dot"></div></div>
+                <div class="de-loader-nodes" id="de-pipeline">
+                    <span class="de-node" data-stage="0">API</span>
+                    <span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="1">INGEST</span>
+                    <span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="2">S3</span>
+                    <span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="3">BRONZE</span>
+                    <span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="4">SILVER</span>
+                    <span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="5">GOLD</span>
+                    <span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="6">ANALYTICS</span>
+                </div>
+            </div>
+
+            <div class="de-loader-status-bar">
+                <span id="de-status-text" class="de-status-text">Initializing data systems...</span>
+                <span id="de-progress-text" class="de-progress-text">0%</span>
+            </div>
+        </div>
+    </div>
+
     <header class="site-header">
         <div class="container header-container">
             <a href="#" class="logo">Asim Builds<span class="cursor">_</span></a>
@@ -103,7 +138,7 @@
             </div>
         </section>
 
-<!-- ABOUT SECTION -->
+        <!-- ABOUT SECTION -->
         <section id="about" class="section">
             <div class="container" data-animate>
                 <h2 class="section-title">About Me</h2>
@@ -118,6 +153,7 @@
                 </div>
             </div>
         </section>
+
         <!-- DATA ENGINEERING FOCUS -->
         <section id="focus" class="section bg-light">
             <div class="container" data-animate>
@@ -255,7 +291,7 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Full-Stack / University Project (NEW) -->
+                <!-- Project 3: Full-Stack / University Project -->
                 <div class="project-card" data-animate>
                     <div class="project-header">
                         <h3 class="project-title">Online Grocery Management System</h3>
@@ -443,317 +479,15 @@
                     <button class="filter-btn" data-filter="other">Other</button>
                 </div>
 
-                <div class="cert-grid" id="certGrid">
-                    <!-- DataCamp Certificates -->
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Introduction to Git by Datacamp-1.png" alt="Introduction to Git Certificate" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Introduction to Git</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned Git fundamentals including repositories, commits, branches, and version control workflows.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Intermediate Git by Datacamp-1.png" alt="Intermediate Git Certificate" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Intermediate Git</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned branching strategies, merging, resolving conflicts, and working with Git more effectively in development workflows.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Introduction to Importing Data in Python By Datacamp-1.png" alt="Introduction to Importing Data in Python" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Introduction to Importing Data in Python</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned how to load data from common file formats and work with imported datasets using Python.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Introduction to Python for Developers by Datacamp-1.png" alt="Introduction to Python for Developers" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Introduction to Python for Developers</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned Python fundamentals including variables, functions, control flow, data structures, and reusable code.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Intermediate Python for Developers by Datacamp-1.png" alt="Intermediate Python for Developers" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Intermediate Python for Developers</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Strengthened Python skills through more advanced programming concepts and writing cleaner reusable code.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Introduction to Relational Databases in SQL BY Datacamp-1.png" alt="Introduction to Relational Databases in SQL" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Introduction to Relational Databases in SQL</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned relational database concepts, tables, relationships, and how SQL is used to query structured data.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate Introduction to SQL by Datacamp-1.png" alt="Introduction to SQL" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Introduction to SQL</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned SQL fundamentals including SELECT queries, filtering, sorting, aggregation, and basic data analysis.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Intermediate SQL BY DataCamp-1.png" alt="Intermediate SQL" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Intermediate SQL</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned more advanced SQL techniques for querying, transforming, and analyzing relational data.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate Joining Data in SQL by Datacamp-1.png" alt="Joining Data in SQL" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Joining Data in SQL</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned how to combine data across tables using joins and work with relational datasets effectively.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate Data Warehousing Concepts by Datacamp-1.png" alt="Data Warehousing Concepts" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Data Warehousing Concepts</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned core data warehouse concepts including analytical data structures, dimensional modeling, and warehouse architecture.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate Database Design Datacamp-1.png" alt="Database Design" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Database Design</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned principles for designing structured databases including tables, relationships, keys, and data organization.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Introduction to Snowflake SQL by Datacamp-1.png" alt="Introduction to Snowflake SQL" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Introduction to Snowflake SQL</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned how to use SQL concepts within Snowflake for querying and working with cloud data.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of ETL and ELT in Python by Datacamp-1.png" alt="ETL and ELT in Python" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">ETL and ELT in Python</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned how to extract, transform, and load data using Python while understanding ETL and ELT workflows.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Cleaning Data in Python by Datacamp-1.png" alt="Cleaning Data in Python" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Cleaning Data in Python</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned techniques for identifying missing values, inconsistencies, duplicates, and other data quality problems.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/certificate of Writing Efficient Python Code by Datacamp-1.png" alt="Writing Efficient Python Code" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Writing Efficient Python Code</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned techniques for improving Python code efficiency, performance, readability, and resource usage.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Software Engineering Principles in Python by Datacamp-1.png" alt="Software Engineering Principles in Python" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Software Engineering Principles in Python</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned software engineering practices such as modular code, testing, maintainability, and writing reliable Python applications.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Streamlined Data Ingestion with pandas-1.png" alt="Streamlined Data Ingestion with pandas" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Streamlined Data Ingestion with pandas</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned how to efficiently ingest and process datasets using pandas for data engineering workflows.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Introduction to APIs in Python by Datacamp-1.png" alt="Introduction to APIs in Python" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Introduction to APIs in Python</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned how to work with APIs in Python, send requests, handle responses, and retrieve external data.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Introduction to Apache Airflow in Python by Datacamp-1.png" alt="Introduction to Apache Airflow in Python" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Introduction to Apache Airflow in Python</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned Airflow fundamentals including DAGs, tasks, dependencies, and workflow orchestration.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Understanding Cloud Computing by Datacamp-1.png" alt="Understanding Cloud Computing" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Understanding Cloud Computing</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Learned core cloud computing concepts including cloud infrastructure, services, scalability, and common cloud architectures.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Data Engineer in Python by Datacamp-1.png" alt="Data Engineer in Python" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Data Engineer in Python</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Applied Python concepts to data engineering tasks including data ingestion, transformation, processing, and working with real datasets.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Associate Data Engineer by Datacamp-1.png" alt="Associate Data Engineer" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Associate Data Engineer</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Built foundational data engineering knowledge across data ingestion, transformation, storage, databases, and engineering workflows.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="datacamp">
-                        <img src="assets/certificates/Certificate of Associate Data Engineer in SQL by Datacamp-1.png" alt="Associate Data Engineer in SQL" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Associate Data Engineer in SQL</h3>
-                            <p class="cert-provider">DataCamp</p>
-                            <p class="cert-summary-hidden">Developed practical SQL skills for querying, transforming, joining, and analyzing data in data engineering contexts.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
+                <!-- Empty Grid: JS will populate this with lightweight text-only cards -->
+                <div class="cert-grid" id="certGrid"></div>
 
-                    <!-- IBM / Coursera Certificates -->
-                    <div class="cert-card" data-category="coursera">
-                        <img src="assets/certificates/Python for Data Science, AI  Development-1.png" alt="Python for Data Science, AI & Development" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Python for Data Science, AI & Development</h3>
-                            <p class="cert-provider">IBM / Coursera</p>
-                            <p class="cert-summary-hidden">Learned Python programming for data work including data structures, functions, libraries, APIs, and working with datasets.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="coursera">
-                        <img src="assets/certificates/Python project of Data engineering-1.png" alt="Python Project for Data Engineering" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Python Project for Data Engineering</h3>
-                            <p class="cert-provider">IBM / Coursera</p>
-                            <p class="cert-summary-hidden">Applied Python to a practical data engineering workflow involving data collection, processing, transformation, and storage.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="coursera">
-                        <img src="assets/certificates/Certificate of Understanding Data Enginnering-1.png" alt="Understanding Data Engineering" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Understanding Data Engineering</h3>
-                            <p class="cert-provider">IBM / Coursera</p>
-                            <p class="cert-summary-hidden">Learned the role of data engineering, data pipelines, ETL processes, data architecture, storage systems, and the data engineering lifecycle.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="coursera">
-                        <img src="assets/certificates/Coursera colorado certificate-1.png" alt="Coursera Colorado Certificate" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Coursera Colorado Certificate</h3>
-                            <p class="cert-provider">Coursera</p>
-                            <p class="cert-summary-hidden">Completed coursework aligned with the Colorado certificate program requirements.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-
-                    <!-- Deloitte Job Simulations -->
-                    <div class="cert-card" data-category="deloitte">
-                        <img src="assets/certificates/Certificate of Technology Job Simulation by Deloitte-1.png" alt="Technology Job Simulation" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Technology Job Simulation</h3>
-                            <p class="cert-provider">Deloitte</p>
-                            <p class="cert-summary-hidden">Practiced technology consulting tasks including technical problem solving, analysis, and communicating technology-related findings.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="deloitte">
-                        <img src="assets/certificates/Certificate Data Analytics Job Simulation by Deloitte-1.png" alt="Data Analytics Job Simulation" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Data Analytics Job Simulation</h3>
-                            <p class="cert-provider">Deloitte</p>
-                            <p class="cert-summary-hidden">Practiced data analysis, interpreting datasets, identifying insights, and presenting analytical findings.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-
-                    <!-- BCG Job Simulation -->
-                    <div class="cert-card" data-category="bcg">
-                        <img src="assets/certificates/ASIM RAZA data science by BCG Forage-1.png" alt="Data Science Job Simulation" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Data Science Job Simulation</h3>
-                            <p class="cert-provider">BCG</p>
-                            <p class="cert-summary-hidden">Applied data science techniques to a business problem including data preparation, analysis, and predictive modeling.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-
-                    <!-- Other Certificates -->
-                    <div class="cert-card" data-category="other">
-                        <img src="assets/certificates/Statistical Analysis of Data for Researchers-1.png" alt="Statistical Analysis of Data for Researchers" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Statistical Analysis of Data for Researchers</h3>
-                            <p class="cert-provider">Other</p>
-                            <p class="cert-summary-hidden">Learned statistical concepts and techniques for analyzing datasets and interpreting research findings.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="other">
-                        <img src="assets/certificates/Business Communications-1.png" alt="Business Communications" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Business Communications</h3>
-                            <p class="cert-provider">Other</p>
-                            <p class="cert-summary-hidden">Developed professional communication skills including clear written communication, workplace interaction, and presenting information effectively.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
-                    <div class="cert-card" data-category="other">
-                        <img src="assets/certificates/Management-1.png" alt="Management" loading="lazy" class="cert-image-preview">
-                        <div class="cert-card-content">
-                            <h3 class="cert-title">Management</h3>
-                            <p class="cert-provider">Other</p>
-                            <p class="cert-summary-hidden">Learned foundational management concepts including planning, organization, coordination, and managing responsibilities effectively.</p>
-                            <button class="btn btn-sm btn-outline view-cert-btn">View Certificate &rarr;</button>
-                        </div>
-                    </div>
+                <div class="text-center" style="margin-top: 3rem;">
+                    <button id="loadMoreCertsBtn" class="btn btn-outline" style="display: none;">Load More Certificates</button>
                 </div>
             </div>
         </section>
-
+        
         <!-- CONTACT -->
         <section id="contact" class="section">
             <div class="container text-center" data-animate>
@@ -792,25 +526,8 @@
         </div>
     </footer>
 
-    <!-- CERTIFICATE MODAL -->
-    <div class="cert-modal" id="certModal" aria-modal="true" role="dialog" tabindex="-1">
-        <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
-            <div class="modal-body">
-                <img src="" alt="Certificate" class="modal-image" id="modalImage">
-                <div class="modal-details">
-                    <h3 class="modal-title" id="modalTitle">Certificate Title</h3>
-                    <p class="modal-provider" id="modalProvider">Provider Name</p>
-                    <div class="modal-learning">
-                        <h4>What I learned</h4>
-                        <p id="modalSummary">Summary goes here.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- ADD THIS LINE TO LOAD CERTIFICATE DATA -->
+    <script src="certificates.js"></script> 
     <script src="script.js"></script>
 </body>
 </html>

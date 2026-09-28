@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Viewer | Asim Raza</title>
+    <meta name="description" content="View certification details.">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- PREMIUM DATA ENGINEERING LOADER -->
+    <div id="de-loader" class="de-loader" aria-live="polite" aria-atomic="true">
+        <div class="de-loader-content">
+            <div class="de-loader-brand">
+                <div class="de-loader-logo">ASIM BUILDS<span class="cursor">_</span></div>
+                <div class="de-loader-role">DATA ENGINEERING</div>
+            </div>
+            
+            <div class="de-loader-pipeline-wrapper">
+                <div class="de-pulse-track"><div class="de-pulse-dot"></div></div>
+                <div class="de-loader-nodes" id="de-pipeline">
+                    <span class="de-node" data-stage="0">API</span><span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="1">INGEST</span><span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="2">S3</span><span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="3">BRONZE</span><span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="4">SILVER</span><span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="5">GOLD</span><span class="de-arrow">&rarr;</span>
+                    <span class="de-node" data-stage="6">ANALYTICS</span>
+                </div>
+            </div>
+
+            <div class="de-loader-status-bar">
+                <span id="de-status-text" class="de-status-text">Fetching certificate...</span>
+                <span id="de-progress-text" class="de-progress-text">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">Asim Builds<span class="cursor">_</span></a>
+            <nav class="main-nav" style="margin-left:auto;">
+                <ul class="nav-links">
+                    <li><a href="index.html#certifications">Back to Certificates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section resume-section">
+            <div class="container">
+                <div class="resume-header">
+                    <div>
+                        <h1 class="section-title" id="cvTitle" style="margin-bottom: 0.5rem;">Loading...</h1>
+                        <p id="cvProvider" style="font-family: var(--font-mono); color: var(--accent); font-weight: 500;"></p>
+                    </div>
+                    <div class="resume-actions" id="actionButtons">
+                        <a href="#" id="cvDownload" download class="btn btn-primary">Download Certificate</a>
+                        <a href="index.html#certifications" class="btn btn-outline">&larr; Back to Certificates</a>
+                    </div>
+                </div>
+                
+                <div class="pdf-container" style="background: var(--bg-light); text-align: center; padding: 2rem; display: flex; align-items: center; justify-content: center;">
+                    <img id="cvImage" src="" alt="" style="max-width: 100%; height: auto; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); display: none;">
+                    
+                    <div id="cvError" style="display: none; padding: 4rem 0;">
+                        <h2 style="margin-bottom: 1rem;">Certificate Not Found</h2>
+                        <p>The requested certificate could not be located. It may have been moved or removed.</p>
+                        <a href="index.html#certifications" class="btn btn-primary" style="margin-top: 1.5rem;">Return to Certificates</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="certificates.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const certId = urlParams.get('certificate');
+            const cert = certificateData.find(c => c.id === certId);
+
+            const titleEl = document.getElementById('cvTitle');
+            const providerEl = document.getElementById('cvProvider');
+            const imageEl = document.getElementById('cvImage');
+            const downloadBtn = document.getElementById('cvDownload');
+            const errorEl = document.getElementById('cvError');
+            const actionBtns = document.getElementById('actionButtons');
+
+            if (cert) {
+                // Securely populate data
+                document.title = `${cert.title} Certificate | Asim Raza`;
+                titleEl.textContent = cert.title;
+                providerEl.textContent = cert.provider;
+                
+                imageEl.src = cert.file;
+                imageEl.alt = `${cert.title} certificate from ${cert.provider}`;
+                imageEl.style.display = 'block';
+                
+                downloadBtn.href = cert.file;
+                // Generate a clean filename for download based on ID
+                const ext = cert.file.split('.').pop();
+                downloadBtn.download = `Asim-Raza-${cert.id}-Certificate.${ext}`;
+            } else {
+                // Failsafe state
+                document.title = "Not Found | Asim Raza";
+                titleEl.textContent = "Not Found";
+                actionBtns.style.display = 'none';
+                errorEl.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
