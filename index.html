@@ -242,7 +242,7 @@
                             </ul>
                         </div>
                         <div class="timeline-item">
-                            <span class="timeline-date">May 2023 – August 2023</span>
+                            <span class="timeline-date">3 Months</span>
                             <h3 class="timeline-title">Front Counter Associate</h3>
                             <p class="timeline-subtitle">Bonsaii Restaurant</p>
                             <p>Processed customer transactions accurately, handled cash, processed orders, and provided customer service in a fast-paced environment while following operational procedures.</p>
@@ -330,8 +330,7 @@
         </section>
 
         <!-- 08. Contact Section -->
-        <!-- Fixed hardcoded padding to respect the CSS grid system spacing -->
-        <section id="contact" style="text-align: center; border-bottom: none; overflow: hidden;">
+        <section id="contact" style="padding-top: 8rem; padding-bottom: 8rem; text-align: center; border-bottom: none; overflow: hidden;">
             <div class="bg-grid-pattern"></div>
             <div class="container reveal">
                 <div class="section-header" style="align-items: center; margin-bottom: 3rem;">
@@ -348,6 +347,8 @@
     </main>
 
     <!-- PROJECT MODALS (Progressive Disclosure) -->
+    
+    <!-- JOB MARKET MODAL -->
     <div id="modal-job-market" class="project-modal">
         <div class="modal-content">
             <button class="close-modal">&times;</button>
@@ -363,13 +364,58 @@
                     <div class="metric"><span class="metric-val">&lt;3 Min</span><span class="metric-label">Pipeline Runtime</span></div>
                     <div class="metric"><span class="metric-val">6</span><span class="metric-label">Gold Analytics Tables</span></div>
                 </div>
+
+                <!-- Static Architecture Diagram -->
                 <img src="assets/projects/job-market-architecture.png" alt="Job Market Intelligence Platform data engineering architecture showing JobsPipe API, Amazon S3, Databricks Workflow, Bronze, Silver, Gold Delta layers, and Databricks AI/BI dashboard." class="project-architecture-img">
+                
                 <div class="engineering-decisions">
                     <div class="decision-card"><h4>Incremental Processing</h4><p>The pipeline uses incremental loading to process new job data without rebuilding the entire dataset on every run.</p></div>
                     <div class="decision-card"><h4>Idempotent Reruns</h4><p>MERGE-based upserts allow the pipeline to be rerun without creating duplicate records.</p></div>
                     <div class="decision-card"><h4>Fail-Fast API Handling</h4><p>Non-success API responses raise exceptions and stop the workflow task rather than allowing incomplete data to continue downstream.</p></div>
                     <div class="decision-card"><h4>Data Quality Validation</h4><p>Six validation categories check required fields, duplicates, salaries, timestamps, remote values, and country codes before analytics-ready data is produced.</p></div>
                 </div>
+
+                <!-- INTERACTIVE PIPELINE: JOB MARKET -->
+                <div class="interactive-pipeline" id="interactive-job-market">
+                    <div class="pipeline-header-block">
+                        <h4>See How the Pipeline Works</h4>
+                        <p>Follow the journey from raw job listings to analytics-ready insights.</p>
+                    </div>
+                    <div class="pipeline-controls">
+                        <button class="btn btn-primary run-pipeline-btn">▶ Run Pipeline</button>
+                        <div class="view-toggle">
+                            <button class="toggle-btn active" data-view="simple">Simple View</button>
+                            <button class="toggle-btn" data-view="technical">Technical View</button>
+                        </div>
+                    </div>
+                    <div class="pipeline-view-area">
+                        <div class="pipeline-progress">Step 1 of 7</div>
+                        <div class="pipeline-layout">
+                            <div class="pipeline-track">
+                                <div class="data-packet"></div>
+                                <!-- Nodes injected by JS -->
+                            </div>
+                            <div class="pipeline-info-panel">
+                                <!-- Dynamic content injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-final-state" style="display: none;">
+                        <h3>Pipeline Complete</h3>
+                        <div class="final-metrics-grid">
+                            <div class="metric"><span class="metric-val">400+</span><span class="metric-label">Job Listings Processed</span></div>
+                            <div class="metric"><span class="metric-val">6</span><span class="metric-label">Data Quality Categories</span></div>
+                            <div class="metric"><span class="metric-val">6</span><span class="metric-label">Gold Analytics Tables</span></div>
+                            <div class="metric"><span class="metric-val">&lt;3 Min</span><span class="metric-label">Pipeline Runtime</span></div>
+                        </div>
+                        <div class="final-flow">
+                            <span>Raw Job Data</span> → <span>Clean Data</span> → <span>Analytics</span> → <span>Insights</span>
+                        </div>
+                        <a href="https://github.com/asimraza3768/job-market-intelligence" target="_blank" rel="noopener" class="btn btn-secondary">View Full Project →</a>
+                    </div>
+                </div>
+
+                <!-- Dashboards -->
                 <div class="project-dashboards">
                     <h4>Analytics Dashboard</h4>
                     <p>Interactive Databricks AI/BI dashboards built from the Gold analytics layer to explore job-market trends, skill demand, and market patterns.</p>
@@ -385,6 +431,7 @@
         </div>
     </div>
 
+    <!-- WEATHER MODAL -->
     <div id="modal-weather" class="project-modal">
         <div class="modal-content">
             <button class="close-modal">&times;</button>
@@ -394,6 +441,7 @@
                 <div class="tech-tags" style="margin-bottom: 2rem;">
                     <span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">SQL</span><span class="tag">Delta Lake</span>
                 </div>
+                
                 <div class="project-arch-text" style="margin-bottom: 2rem;">
                     <span class="comment">// Pipeline Flow</span><br>
                     API Ingestion → Bronze Storage → PySpark Data Quality Checks → Gold Analytics Dashboard<br><br>
@@ -404,12 +452,55 @@
                     <span class="comment">// Data Quality Checks</span><br>
                     Null checks, Timestamp conversions
                 </div>
-                <a href="https://github.com/asimraza3768/Weather-project" target="_blank" rel="noopener" class="btn btn-primary">View GitHub Repository</a>
+
+                <!-- INTERACTIVE PIPELINE: WEATHER -->
+                <div class="interactive-pipeline" id="interactive-weather">
+                    <div class="pipeline-header-block">
+                        <h4>See How the Pipeline Works</h4>
+                        <p>Follow weather data from the API to analytics-ready insights.</p>
+                    </div>
+                    <div class="pipeline-controls">
+                        <button class="btn btn-primary run-pipeline-btn">▶ Run Pipeline</button>
+                        <div class="view-toggle">
+                            <button class="toggle-btn active" data-view="simple">Simple View</button>
+                            <button class="toggle-btn" data-view="technical">Technical View</button>
+                        </div>
+                    </div>
+                    <div class="pipeline-view-area">
+                        <div class="pipeline-progress">Step 1 of 6</div>
+                        <div class="pipeline-layout">
+                            <div class="pipeline-track">
+                                <div class="data-packet"></div>
+                                <!-- Nodes injected by JS -->
+                            </div>
+                            <div class="pipeline-info-panel">
+                                <!-- Dynamic content injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-final-state" style="display: none;">
+                        <h3>Pipeline Complete</h3>
+                        <div class="final-metrics-grid">
+                            <div class="metric"><span class="metric-val">5</span><span class="metric-label">Cities</span></div>
+                            <div class="metric"><span class="metric-val" style="font-size:1.25rem; margin-top:0.5rem;">OpenWeather API</span><span class="metric-label">Source</span></div>
+                            <div class="metric"><span class="metric-val" style="font-size:1.25rem; margin-top:0.5rem;">Databricks SQL</span><span class="metric-label">Analytics</span></div>
+                        </div>
+                        <div class="final-flow">
+                            <span>Bronze</span> → <span>Silver</span> → <span>Gold</span>
+                        </div>
+                        <div class="final-flow" style="background:transparent; margin-top:-1.5rem;">
+                            <span>Weather Data</span> → <span>Clean Data</span> → <span>Daily Insights</span>
+                        </div>
+                        <a href="https://github.com/asimraza3768/Weather-project" target="_blank" rel="noopener" class="btn btn-secondary">View Full Project →</a>
+                    </div>
+                </div>
+
+                <a href="https://github.com/asimraza3768/Weather-project" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 2rem;">View GitHub Repository</a>
             </div>
         </div>
     </div>
 
-    <!-- FULLY EXPANDED GROCERY PROJECT -->
+    <!-- GROCERY MODAL -->
     <div id="modal-grocery" class="project-modal">
         <div class="modal-content">
             <button class="close-modal">&times;</button>
@@ -484,6 +575,7 @@
             </div>
         </div>
     </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
