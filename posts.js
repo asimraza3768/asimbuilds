@@ -142,7 +142,66 @@ const blogPosts = [
         excerpt: 'A look at realistic future feature additions, including automated retries, scheduling, and better observability.',
         url: 'posts/future-pipeline-improvements.html',
         isFeatured: false
+    },
+
+    {
+        id: 'tech-simple-architecture',
+        title: 'Why Simple Architecture Usually Wins',
+        category: 'Technology',
+        date: 'October 20, 2026',
+        timestamp: 1792473600000,
+        readTime: '4 min read',
+        excerpt: 'A look at why over-engineering hurts projects and why simplicity is the ultimate sophistication in software design.',
+        url: 'posts/why-simple-architecture-wins.html',
+        isFeatured: false
+    },
+    {
+        id: 'career-building-scratch',
+        title: 'The Value of Building Things From Scratch',
+        category: 'Career',
+        date: 'October 22, 2026',
+        timestamp: 1792646400000,
+        readTime: '3 min read',
+        excerpt: 'Why stepping away from tutorials and facing a blank canvas is the fastest way to grow as an engineer.',
+        url: 'posts/value-of-building-from-scratch.html',
+        isFeatured: false
+    },
+    {
+        id: 'life-finding-balance',
+        title: 'Finding Balance in a Screen-Heavy World',
+        category: 'Life',
+        date: 'October 25, 2026',
+        timestamp: 1792905600000,
+        readTime: '3 min read',
+        excerpt: 'Reflections on stepping away from the keyboard and the importance of offline hobbies.',
+        url: 'posts/finding-balance-offline.html',
+        isFeatured: false
+    },
+    {
+        id: 'books-systems-thinking',
+        title: 'How Reading Changes the Way We Build',
+        category: 'Books',
+        date: 'October 28, 2026',
+        timestamp: 1793164800000,
+        readTime: '3 min read',
+        excerpt: 'Why reading books outside of your technical discipline makes you a better engineer.',
+        url: 'posts/books-on-systems-thinking.html',
+        isFeatured: false
+    },
+    {
+        id: 'poetry-quiet-builder',
+        title: 'The Quiet Builder',
+        category: 'Poetry',
+        date: 'October 30, 2026',
+        timestamp: 1793337600000,
+        readTime: '1 min read',
+        excerpt: 'A short poem about the logic and quiet beauty of building systems.',
+        url: 'posts/the-quiet-builder.html',
+        isFeatured: false
     }
+
+
+
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

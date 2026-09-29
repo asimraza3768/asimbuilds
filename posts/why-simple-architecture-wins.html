@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Simple Architecture Usually Wins | Asim Raza</title>
+    <meta name="description" content="A look at why over-engineering hurts projects and why simplicity is the ultimate sophistication in software design.">
+    <link rel="canonical" href="https://asimbuilds.dev/posts/why-simple-architecture-wins.html">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <meta property="og:title" content="Why Simple Architecture Usually Wins">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header class="article-page-header container reveal">
+                <span class="article-page-category">Technology</span>
+                <h1 class="article-page-title">Why Simple Architecture Usually Wins</h1>
+                <div class="article-page-meta">October 20, 2026 <span style="margin: 0 0.5rem; color: var(--border-medium);">|</span> 4 min read</div>
+            </header>
+
+            <div class="container article-body reveal delay-1">
+                <p>When we first learn about modern technology stacks, there is a strong temptation to use every tool available. If a project can use Docker, Kubernetes, Kafka, and Spark, we often feel like it <em>should</em>.</p>
+                
+                <h2>The Cost of Complexity</h2>
+                <p>Every new tool introduced into an architecture adds friction. It adds maintenance overhead, potential points of failure, and cognitive load for the developer who has to debug it at 2 AM. While building my recent data pipelines, I learned a difficult lesson: complexity is a liability, not a badge of honor.</p>
+                
+                <h2>Building for the Problem, Not the Resume</h2>
+                <p>If a simple Python script and a cron job can reliably extract, transform, and load a dataset, then adding a distributed streaming platform is over-engineering. True engineering is about constraint satisfaction. It is about finding the most elegant, maintainable, and cost-effective way to move data from point A to point B securely.</p>
+                
+                <p>As I continue to grow as a Data Engineer, my primary question during the design phase has shifted from <em>"What modern tools can I use?"</em> to <em>"What is the simplest system that will actually work?"</em></p>
+            </div>
+        </article>
+        <div style="text-align: center; margin-bottom: 4rem;"><a href="../blog.html" class="btn btn-secondary">← Back to Writing</a></div>
+    </main>
+    <script src="../script.js"></script>
+</body>
+</html>
