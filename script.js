@@ -86,3 +86,40 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 });
+
+// 5. Project Modals Logic (Progressive Disclosure)
+    const modalButtons = document.querySelectorAll('.open-modal');
+    const closeButtons = document.querySelectorAll('.close-modal');
+    const modals = document.querySelectorAll('.project-modal');
+
+    modalButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = btn.getAttribute('data-target');
+            const targetModal = document.getElementById(targetId);
+            if (targetModal) {
+                targetModal.classList.add('active');
+                document.body.classList.add('no-scroll');
+            }
+        });
+    });
+
+    const closeModal = () => {
+        modals.forEach(modal => {
+            modal.classList.remove('active');
+        });
+        document.body.classList.remove('no-scroll');
+    };
+
+    closeButtons.forEach(btn => {
+        btn.addEventListener('click', closeModal);
+    });
+
+    // Close when clicking outside the modal content
+    modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    });

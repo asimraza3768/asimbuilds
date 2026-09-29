@@ -7,7 +7,6 @@
     <meta name="description" content="Portfolio of Asim Raza, a Data Engineer focused on building automated ETL pipelines, data platforms, and analytics-ready datasets using Python, SQL, PySpark, Databricks, and AWS.">
     <link rel="canonical" href="https://asimbuilds.dev/">
     
-    <!-- Favicon & Open Graph -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <meta property="og:title" content="Asim Raza | Data Engineer">
     <meta property="og:description" content="Data Engineer focused on building automated ETL pipelines and data platforms.">
@@ -20,7 +19,6 @@
 </head>
 <body>
 
-    <!-- Navigation -->
     <header>
         <nav class="nav-container">
             <a href="index.html" class="logo">Asim Builds</a>
@@ -53,7 +51,7 @@
                 <span class="hero-label">DATA ENGINEER</span>
                 <h1 class="hero-title">Asim Raza</h1>
                 <h2 class="hero-subtitle">Building reliable data pipelines and analytics systems.</h2>
-                <p class="hero-desc">Data Engineer focused on building automated ETL pipelines, data platforms, and analytics-ready datasets using Python, SQL, PySpark, Databricks, and AWS.</p>
+                <p class="hero-desc">I am a Computer Science student focused on data engineering — building ETL pipelines and Medallion architectures using Python, SQL, PySpark, Databricks, and AWS. Currently looking for my first Data Engineer role.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
@@ -78,7 +76,7 @@
             </div>
         </div>
 
-        <!-- 01. Projects Section -->
+        <!-- 01. Projects Section (Overview Cards) -->
         <section id="projects" class="container">
             <div class="section-header reveal">
                 <span class="section-num">01 / Projects</span>
@@ -86,106 +84,47 @@
                 <p class="section-subtitle">Real engineering workflows focusing on reliability, data quality, and structured analytics.</p>
             </div>
             
-            <!-- Job Market Intelligence Platform -->
-            <div class="project-card featured reveal delay-1" style="grid-template-columns: 1fr;">
-                <div class="project-content">
-                    <h3>Job Market Intelligence Platform</h3>
-                    <p>An end-to-end data pipeline processing job listings across multiple cities and landing them in a Medallion architecture for skill demand analytics.</p>
-                    
-                    <div class="tech-tags" style="margin-bottom: 1.5rem;">
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">PySpark</span>
-                        <span class="tag">Databricks</span>
-                        <span class="tag">AWS S3</span>
-                        <span class="tag">Delta Lake</span>
-                        <span class="tag">REST APIs</span>
-                    </div>
-
-                    <!-- Engineering Metrics -->
-                    <div class="project-metrics">
-                        <div class="metric"><span class="metric-val">400+</span><span class="metric-label">Job Listings Processed</span></div>
-                        <div class="metric"><span class="metric-val">6</span><span class="metric-label">Data Quality Categories</span></div>
-                        <div class="metric"><span class="metric-val">&lt;3 Min</span><span class="metric-label">Pipeline Runtime</span></div>
-                        <div class="metric"><span class="metric-val">6</span><span class="metric-label">Gold Analytics Tables</span></div>
-                    </div>
-
-                    <!-- Architecture Diagram -->
-                    <img src="assets/projects/job-market-architecture.png" alt="Job Market Intelligence Platform data engineering architecture showing JobsPipe API, Amazon S3, Databricks Workflow, Bronze, Silver, Gold Delta layers, and Databricks AI/BI dashboard." class="project-architecture-img">
-                    
-                    <!-- Engineering Decisions -->
-                    <div class="engineering-decisions">
-                        <div class="decision-card">
-                            <h4>Incremental Processing</h4>
-                            <p>The pipeline uses incremental loading to process new job data without rebuilding the entire dataset on every run.</p>
-                        </div>
-                        <div class="decision-card">
-                            <h4>Idempotent Reruns</h4>
-                            <p>MERGE-based upserts allow the pipeline to be rerun without creating duplicate records.</p>
-                        </div>
-                        <div class="decision-card">
-                            <h4>Fail-Fast API Handling</h4>
-                            <p>Non-success API responses raise exceptions and stop the workflow task rather than allowing incomplete data to continue downstream.</p>
-                        </div>
-                        <div class="decision-card">
-                            <h4>Data Quality Validation</h4>
-                            <p>Six validation categories check required fields, duplicates, salaries, timestamps, remote values, and country codes before analytics-ready data is produced.</p>
+            <div class="projects-overview-grid">
+                <!-- Card 1 -->
+                <div class="card project-summary-card reveal delay-1">
+                    <div>
+                        <h3>Job Market Intelligence Platform</h3>
+                        <p style="display:block;">An end-to-end data pipeline processing job listings across multiple cities into a Medallion architecture for skill demand analytics.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Databricks</span>
+                            <span class="tag">AWS S3</span>
                         </div>
                     </div>
-
-                    <!-- Dashboard Gallery -->
-                    <div class="project-dashboards">
-                        <h4>Analytics Dashboard</h4>
-                        <p>Interactive Databricks AI/BI dashboards built from the Gold analytics layer to explore job-market trends, skill demand, and market patterns.</p>
-                        <div class="dashboard-gallery">
-                            <img src="assets/dashboards/job-market-dashboard.png" class="dashboard-img dashboard-main" alt="Databricks AI/BI job market analytics main dashboard">
-                            <img src="assets/dashboards/job-market-dashboard-skills.png" class="dashboard-img" alt="Databricks AI/BI job market skills analysis dashboard">
-                            <img src="assets/dashboards/job-market-dashboard-skills-2.png" class="dashboard-img" alt="Databricks AI/BI job market secondary skills dashboard">
-                            <img src="assets/dashboards/job-market-dashboard-markets.png" class="dashboard-img" alt="Databricks AI/BI job market locations dashboard">
-                        </div>
-                    </div>
-                    
-                    <a href="https://github.com/asimraza3768/job-market-intelligence" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 2rem;">View on GitHub</a>
+                    <button class="btn btn-secondary open-modal" data-target="modal-job-market">View Project →</button>
                 </div>
-            </div>
 
-            <!-- Weather Data Pipeline -->
-            <div class="project-card reveal delay-1">
-                <div class="project-content">
-                    <h3>Weather Data Engineering Pipeline</h3>
-                    <p>Automated pipeline ingesting live weather data for 5 major cities in Pakistan, applying transformations, and preparing data for dashboard analytics.</p>
-                    <div class="tech-tags" style="margin: 1.5rem 0;">
-                        <span class="tag">Python</span>
-                        <span class="tag">PySpark</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Delta Lake</span>
+                <!-- Card 2 -->
+                <div class="card project-summary-card reveal delay-2">
+                    <div>
+                        <h3>Weather Data Engineering Pipeline</h3>
+                        <p style="display:block;">Automated pipeline ingesting live weather data for 5 major cities in Pakistan, applying transformations, and preparing data for dashboard analytics.</p>
+                        <div class="tech-tags">
+                            <span class="tag">PySpark</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Delta Lake</span>
+                        </div>
                     </div>
-                    <a href="https://github.com/asimraza3768/Weather-project" target="_blank" rel="noopener" class="btn btn-secondary">View GitHub Repository</a>
+                    <button class="btn btn-secondary open-modal" data-target="modal-weather">View Project →</button>
                 </div>
-                <div class="project-arch-text">
-                    <span class="comment">// Pipeline Flow</span>
-                    API Ingestion → Bronze Storage → PySpark Data Quality Checks → Gold Analytics Dashboard
-                </div>
-            </div>
 
-            <!-- Online Grocery Management System -->
-            <div class="project-card reveal delay-2">
-                <div class="project-content">
-                    <h3>Online Grocery Management System</h3>
-                    <p>Final Year Project (Oct 2025 – Apr 2026). A full-stack grocery shopping application where customers can browse products, manage carts, place orders, and view purchases.</p>
-                    <div class="tech-tags" style="margin: 1.5rem 0;">
-                        <span class="tag">PHP</span>
-                        <span class="tag">MySQL</span>
-                        <span class="tag">Authentication</span>
-                        <span class="tag">CRUD</span>
+                <!-- Card 3 -->
+                <div class="card project-summary-card reveal delay-3">
+                    <div>
+                        <h3>Online Grocery Management System</h3>
+                        <p style="display:block;">A full-stack grocery shopping application where customers can browse products, manage carts, place orders, and view purchases.</p>
+                        <div class="tech-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">CRUD</span>
+                        </div>
                     </div>
-                </div>
-                <div class="project-arch-text">
-                    <span class="comment">// Core Features</span>
-                    - Product browsing & filtering<br>
-                    - Shopping cart & checkout<br>
-                    - Order management & history<br>
-                    - Admin inventory & sales reporting
+                    <button class="btn btn-secondary open-modal" data-target="modal-grocery">View Project →</button>
                 </div>
             </div>
         </section>
@@ -221,7 +160,7 @@
             </div>
         </section>
 
-        <!-- 03. Skills Section -->
+        <!-- 03. Skills Section (Dense Single-View Grid) -->
         <section id="skills" class="container">
             <div class="section-header reveal">
                 <span class="section-num">03 / Skills</span>
@@ -229,77 +168,69 @@
                 <p class="section-subtitle">Core capabilities spanning software development, data engineering, and modern cloud architectures.</p>
             </div>
             
-            <div class="grid-3" style="margin-bottom: 2rem;">
-                <div class="card reveal delay-1">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                    </div>
-                    <h3>Programming & Development</h3>
-                    <p>Building data applications, APIs, and integrations.</p>
+            <div class="skills-grid reveal delay-1">
+                <!-- Group 1 -->
+                <div class="card">
+                    <h3>Programming & Dev</h3>
                     <div class="tech-tags">
                         <span class="tag">Python</span>
                         <span class="tag">SQL</span>
-                        <span class="tag">OOP</span>
+                        <span class="tag">Object-Oriented Prog.</span>
+                        <span class="tag">Data Structures</span>
                         <span class="tag">REST API Integration</span>
+                        <span class="tag">Python Testing</span>
                         <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
                     </div>
                 </div>
-                
-                <div class="card reveal delay-2">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
-                    </div>
+                <!-- Group 2 -->
+                <div class="card">
                     <h3>Data Engineering</h3>
-                    <p>Designing pipelines and analytics-ready data systems.</p>
                     <div class="tech-tags">
                         <span class="tag">ETL / ELT</span>
                         <span class="tag">Data Pipelines</span>
+                        <span class="tag">Data Integration</span>
+                        <span class="tag">Data Quality</span>
+                        <span class="tag">Data Transformation</span>
                         <span class="tag">Data Modeling</span>
+                        <span class="tag">Dimensional Modeling</span>
                         <span class="tag">Star Schema</span>
+                        <span class="tag">Data Warehousing</span>
                         <span class="tag">Apache Spark</span>
                         <span class="tag">PySpark</span>
                     </div>
                 </div>
-                
-                <div class="card reveal delay-3">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>
-                    </div>
-                    <h3>Data Platforms & Cloud</h3>
-                    <p>Building scalable architectures using modern cloud tools.</p>
+                <!-- Group 3 -->
+                <div class="card">
+                    <h3>Platforms & Cloud</h3>
                     <div class="tech-tags">
                         <span class="tag">Databricks</span>
                         <span class="tag">Delta Lake</span>
                         <span class="tag">AWS S3</span>
                         <span class="tag">Unity Catalog</span>
+                        <span class="tag">Databricks Workflows</span>
+                        <span class="tag">Databricks AI/BI</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="grid-2">
-                <div class="card reveal delay-1">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
-                    </div>
+                <!-- Group 4 -->
+                <div class="card">
                     <h3>Databases</h3>
-                    <p>Relational database management and optimization.</p>
                     <div class="tech-tags">
                         <span class="tag">PostgreSQL</span>
                         <span class="tag">MySQL</span>
                     </div>
                 </div>
-                
-                <div class="card reveal delay-2">
-                    <div class="card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                    </div>
-                    <h3>Data Tools & Engineering Practices</h3>
-                    <p>Workflow orchestration, transformations, and automation practices.</p>
+                <!-- Group 5 -->
+                <div class="card">
+                    <h3>Tools & Practices</h3>
                     <div class="tech-tags">
                         <span class="tag">Apache Airflow</span>
                         <span class="tag">dbt</span>
+                        <span class="tag">Jinja</span>
+                        <span class="tag">Workflow Orchestration</span>
                         <span class="tag">Data Validation</span>
                         <span class="tag">Pipeline Automation</span>
+                        <span class="tag">Git Workflow</span>
                     </div>
                 </div>
             </div>
@@ -315,10 +246,20 @@
                     </div>
                     <div class="timeline">
                         <div class="timeline-item">
+                            <span class="timeline-date">4 years</span>
+                            <h3 class="timeline-title">Freelance WordPress Developer</h3>
+                            <p class="timeline-subtitle">Freelance</p>
+                            <ul>
+                                <li style="margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">WordPress website development and customization.</li>
+                                <li style="margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">Theme and plugin configuration.</li>
+                                <li style="margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text-secondary);">Responsive design and continuous website maintenance.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item">
                             <span class="timeline-date">May – August</span>
                             <h3 class="timeline-title">Cashier</h3>
                             <p class="timeline-subtitle">Bonsaii Restaurant</p>
-                            <p>Processed customer transactions accurately, handled cash and payment transactions, maintained transaction accuracy, and provided customer service in a fast-paced environment while following operational procedures.</p>
+                            <p>Processed customer transactions accurately, handled cash, processed orders, and provided customer service in a fast-paced environment while following operational procedures.</p>
                         </div>
                     </div>
                 </div>
@@ -333,18 +274,18 @@
                             <span class="timeline-date">2022 – Expected 2027</span>
                             <h3 class="timeline-title">Bachelor of Science in Computer Science</h3>
                             <p class="timeline-subtitle">Virtual University of Pakistan</p>
+                            <p>Computer Science student focused on software engineering and data systems.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 06. Certifications Section -->
+        <!-- 06. Certifications (Unchanged featured) -->
         <section id="certifications" class="container">
             <div class="section-header reveal">
                 <span class="section-num">06 / Certifications</span>
                 <h2 class="section-title">Featured Learning</h2>
-                <p class="section-subtitle">Continuous learning in data engineering, cloud platforms, and software development.</p>
             </div>
             <div class="grid-3">
                 <div class="cert-card reveal delay-1">
@@ -366,7 +307,6 @@
                     <a href="certificate.html?id=datacamp-airflow" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
                 </div>
             </div>
-            
             <div class="reveal delay-2" style="text-align: center; margin-top: 4rem;">
                 <a href="certifications.html" class="btn btn-primary">View All Certifications →</a>
             </div>
@@ -377,7 +317,6 @@
             <div class="section-header reveal">
                 <span class="section-num">07 / Writing</span>
                 <h2 class="section-title">Engineering Notes</h2>
-                <p class="section-subtitle">Practical lessons learned from building data pipelines and processing systems.</p>
             </div>
             <div class="grid-2">
                 <div class="editorial-card reveal delay-1">
@@ -421,6 +360,90 @@
         </section>
     </main>
 
+    <!-- PROJECT MODALS (Progressive Disclosure) -->
+    <div id="modal-job-market" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="project-content">
+                <h3>Job Market Intelligence Platform</h3>
+                <p style="color:var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem;">An end-to-end data pipeline processing job listings across multiple cities and landing them in a Medallion architecture for skill demand analytics.</p>
+                <div class="tech-tags" style="margin-bottom: 2rem;">
+                    <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">PySpark</span><span class="tag">Databricks</span><span class="tag">AWS S3</span><span class="tag">Delta Lake</span><span class="tag">REST APIs</span>
+                </div>
+                <div class="project-metrics">
+                    <div class="metric"><span class="metric-val">400+</span><span class="metric-label">Job Listings Processed</span></div>
+                    <div class="metric"><span class="metric-val">6</span><span class="metric-label">Data Quality Categories</span></div>
+                    <div class="metric"><span class="metric-val">&lt;3 Min</span><span class="metric-label">Pipeline Runtime</span></div>
+                    <div class="metric"><span class="metric-val">6</span><span class="metric-label">Gold Analytics Tables</span></div>
+                </div>
+                <img src="assets/projects/job-market-architecture.png" alt="Job Market Intelligence Platform data engineering architecture showing JobsPipe API, Amazon S3, Databricks Workflow, Bronze, Silver, Gold Delta layers, and Databricks AI/BI dashboard." class="project-architecture-img">
+                <div class="engineering-decisions">
+                    <div class="decision-card"><h4>Incremental Processing</h4><p>The pipeline uses incremental loading to process new job data without rebuilding the entire dataset on every run.</p></div>
+                    <div class="decision-card"><h4>Idempotent Reruns</h4><p>MERGE-based upserts allow the pipeline to be rerun without creating duplicate records.</p></div>
+                    <div class="decision-card"><h4>Fail-Fast API Handling</h4><p>Non-success API responses raise exceptions and stop the workflow task rather than allowing incomplete data to continue downstream.</p></div>
+                    <div class="decision-card"><h4>Data Quality Validation</h4><p>Six validation categories check required fields, duplicates, salaries, timestamps, remote values, and country codes before analytics-ready data is produced.</p></div>
+                </div>
+                <div class="project-dashboards">
+                    <h4>Analytics Dashboard</h4>
+                    <p>Interactive Databricks AI/BI dashboards built from the Gold analytics layer to explore job-market trends, skill demand, and market patterns.</p>
+                    <div class="dashboard-gallery">
+                        <img src="assets/dashboards/job-market-dashboard.png" class="dashboard-img dashboard-main" alt="Databricks AI/BI job market analytics main dashboard">
+                        <img src="assets/dashboards/job-market-dashboard-skills.png" class="dashboard-img" alt="Databricks AI/BI job market skills analysis dashboard">
+                        <img src="assets/dashboards/job-market-dashboard-skills-2.png" class="dashboard-img" alt="Databricks AI/BI job market secondary skills dashboard">
+                        <img src="assets/dashboards/job-market-dashboard-markets.png" class="dashboard-img" alt="Databricks AI/BI job market locations dashboard">
+                    </div>
+                </div>
+                <a href="https://github.com/asimraza3768/job-market-intelligence" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 2rem;">View on GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-weather" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="project-content">
+                <h3>Weather Data Engineering Pipeline</h3>
+                <p style="color:var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem;">Automated pipeline ingesting live weather data for 5 major cities in Pakistan, applying transformations, and preparing data for dashboard analytics.</p>
+                <div class="tech-tags" style="margin-bottom: 2rem;">
+                    <span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">SQL</span><span class="tag">Delta Lake</span>
+                </div>
+                <div class="project-arch-text" style="margin-bottom: 2rem;">
+                    <span class="comment">// Pipeline Flow</span><br>
+                    API Ingestion → Bronze Storage → PySpark Data Quality Checks → Gold Analytics Dashboard<br><br>
+                    <span class="comment">// Delta Tables</span><br>
+                    weather.bronze.bronze_weather<br>
+                    weather.silver.silver_weather<br>
+                    weather.gold.daily_weather_summary<br><br>
+                    <span class="comment">// Data Quality Checks</span><br>
+                    Null checks, Timestamp conversions
+                </div>
+                <a href="https://github.com/asimraza3768/Weather-project" target="_blank" rel="noopener" class="btn btn-primary">View GitHub Repository</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-grocery" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="project-content">
+                <h3>Online Grocery Management System</h3>
+                <p style="color:var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem;">Final Year Project (Oct 2025 – Apr 2026). A full-stack grocery shopping application where customers can browse products, manage carts, place orders, and view purchases.</p>
+                <div class="tech-tags" style="margin-bottom: 2rem;">
+                    <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">XAMPP</span><span class="tag">Authentication</span><span class="tag">CRUD</span>
+                </div>
+                <div class="project-arch-text">
+                    <span class="comment">// Core Features</span><br>
+                    - Product browsing & filtering<br>
+                    - Shopping cart & checkout<br>
+                    - Order management & history<br>
+                    - Admin inventory & sales reporting<br>
+                    - Secure user registration and authentication
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Centered Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">

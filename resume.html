@@ -1,13 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!-- Add Favicon & OG Image -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Asim Raza - Data Engineer</title>
+    <meta name="description" content="View and download the professional resume of Asim Raza, Data Engineer.">
+    <link rel="canonical" href="https://asimbuilds.dev/resume.html">
+    
+    <!-- Favicon & Open Graph -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <meta property="og:title" content="Asim Raza | Resume">
     <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
-    <!-- ... existing tags ... -->
+    <meta property="og:url" content="https://asimbuilds.dev/resume.html">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<!-- Inside Main -->
-<div class="resume-pdf-wrapper">
-    <iframe src="assets/Asim-Raza-Data-Engineer-Resume.pdf" title="Asim Raza Resume" type="application/pdf">
-        <p>Your browser does not support PDFs. <a href="assets/Asim-Raza-Data-Engineer-Resume.pdf">Download the PDF</a>.</p>
-    </iframe>
-</div>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Asim Builds</a>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pdf-main-container" style="padding-top: 4rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h1 class="section-title" style="margin-bottom: 1rem;">Resume</h1>
+            <p class="section-subtitle" style="margin-bottom: 2rem;">Data Engineer focused on building automated ETL pipelines and data platforms.</p>
+            
+            <div style="margin-bottom: 2rem;">
+                <a href="assets/Asim-Raza-Data-Engineer-Resume.pdf" download class="btn btn-primary">Download Resume (PDF)</a>
+            </div>
+        </div>
+
+        <!-- This wrapper creates the new 95% width, 85vh height PDF viewer -->
+        <div class="resume-pdf-wrapper">
+            <iframe src="assets/Asim-Raza-Data-Engineer-Resume.pdf" title="Asim Raza Resume" type="application/pdf">
+                <p>Your browser does not support PDFs. <a href="assets/Asim-Raza-Data-Engineer-Resume.pdf">Download the PDF</a>.</p>
+            </iframe>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

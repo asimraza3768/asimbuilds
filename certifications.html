@@ -6,6 +6,15 @@
     <title>Certifications | Asim Raza — Data Engineer</title>
     <meta name="description" content="Continuous learning in data engineering, cloud platforms, software development, and related technologies.">
     <link rel="canonical" href="https://asimbuilds.dev/certifications.html">
+    
+    <!-- Favicon & Open Graph -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta property="og:title" content="Certifications | Asim Raza">
+    <meta property="og:description" content="Continuous learning in data engineering, cloud platforms, software development, and related technologies.">
+    <meta property="og:url" content="https://asimbuilds.dev/certifications.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,7 +32,7 @@
         <div class="section-header reveal">
             <span class="section-num">Certifications</span>
             <h1 class="section-title">Certifications & Learning</h1>
-            <p class="section-subtitle">Continuous learning in data engineering, cloud platforms, software development, and related technologies.</p>
+            <p class="section-subtitle">A comprehensive list of my academic and professional certifications in Data Engineering, Software Development, and Cloud Computing.</p>
         </div>
 
         <div class="filter-group reveal delay-1" id="filter-container">
@@ -61,6 +70,7 @@
             const fallback = document.getElementById('cert-fallback');
             const filterBtns = document.querySelectorAll('.filter-btn');
 
+            // Fallback if data file is missing
             if (typeof certificatesData === 'undefined') {
                 fallback.innerHTML = "Certificates could not be loaded. Please check the certificate data configuration.";
                 return;
@@ -81,9 +91,9 @@
                         const delayClass = `delay-${(renderedCount % 3) + 1}`;
                         
                         const card = document.createElement('div');
-                        card.className = `cert-card reveal ${delayClass} active`; // Set active immediately since they are injected post-load
+                        // Use .active immediately since injected after page load
+                        card.className = `cert-card reveal ${delayClass} active`; 
                         
-                        // Prevent potential layout shift by keeping structure tight
                         card.innerHTML = `
                             <span class="cert-provider">${cert.provider}</span>
                             <h3>${cert.title}</h3>
@@ -114,7 +124,7 @@
         });
     </script>
     
-    <!-- CRITICAL FIX: This enables the scroll opacity animations -->
+    <!-- This enables the scroll opacity animations globally -->
     <script src="script.js"></script>
 </body>
 </html>
