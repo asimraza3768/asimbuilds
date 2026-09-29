@@ -63,20 +63,7 @@
             </div>
         </section>
 
-        <!-- Tech Strip -->
-        <div class="tech-strip reveal delay-1">
-            <div class="tech-list">
-                <span class="tech-item">Python</span>
-                <span class="tech-item">SQL</span>
-                <span class="tech-item">PySpark</span>
-                <span class="tech-item">Databricks</span>
-                <span class="tech-item">AWS S3</span>
-                <span class="tech-item">Delta Lake</span>
-                <span class="tech-item">REST APIs</span>
-            </div>
-        </div>
-
-        <!-- 01. Projects Section (Overview Cards) -->
+        <!-- 01. Projects Section (Overview Cards immediately visible) -->
         <section id="projects" class="container">
             <div class="section-header reveal">
                 <span class="section-num">01 / Projects</span>
@@ -138,7 +125,7 @@
             <div class="grid-2 about-grid">
                 <div class="reveal delay-1">
                     <div class="profile-img-wrapper">
-                        <img src="assets/profile.png" alt="Professional portrait of Asim Raza" class="profile-img">
+                        <img src="assets/profile2.png" alt="Professional portrait of Asim Raza" class="profile-img">
                     </div>
                 </div>
                 <div class="about-content reveal delay-2">
@@ -165,7 +152,6 @@
             <div class="section-header reveal">
                 <span class="section-num">03 / Skills</span>
                 <h2 class="section-title">Technical Skills</h2>
-                <p class="section-subtitle">Core capabilities spanning software development, data engineering, and modern cloud architectures.</p>
             </div>
             
             <div class="skills-grid reveal delay-1">
@@ -256,8 +242,8 @@
                             </ul>
                         </div>
                         <div class="timeline-item">
-                            <span class="timeline-date">May – August</span>
-                            <h3 class="timeline-title">Cashier</h3>
+                            <span class="timeline-date">May 2023 – August 2023</span>
+                            <h3 class="timeline-title">Front Counter Associate</h3>
                             <p class="timeline-subtitle">Bonsaii Restaurant</p>
                             <p>Processed customer transactions accurately, handled cash, processed orders, and provided customer service in a fast-paced environment while following operational procedures.</p>
                         </div>
@@ -281,7 +267,7 @@
             </div>
         </section>
 
-        <!-- 06. Certifications (Unchanged featured) -->
+        <!-- 06. Certifications -->
         <section id="certifications" class="container">
             <div class="section-header reveal">
                 <span class="section-num">06 / Certifications</span>
@@ -344,7 +330,8 @@
         </section>
 
         <!-- 08. Contact Section -->
-        <section id="contact" style="padding-top: 8rem; padding-bottom: 8rem; text-align: center; border-bottom: none; overflow: hidden;">
+        <!-- Fixed hardcoded padding to respect the CSS grid system spacing -->
+        <section id="contact" style="text-align: center; border-bottom: none; overflow: hidden;">
             <div class="bg-grid-pattern"></div>
             <div class="container reveal">
                 <div class="section-header" style="align-items: center; margin-bottom: 3rem;">
@@ -422,22 +409,37 @@
         </div>
     </div>
 
+    <!-- FULLY EXPANDED GROCERY PROJECT -->
     <div id="modal-grocery" class="project-modal">
         <div class="modal-content">
             <button class="close-modal">&times;</button>
             <div class="project-content">
-                <h3>Online Grocery Management System</h3>
-                <p style="color:var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem;">Final Year Project (Oct 2025 – Apr 2026). A full-stack grocery shopping application where customers can browse products, manage carts, place orders, and view purchases.</p>
-                <div class="tech-tags" style="margin-bottom: 2rem;">
-                    <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">XAMPP</span><span class="tag">Authentication</span><span class="tag">CRUD</span>
-                </div>
-                <div class="project-arch-text">
-                    <span class="comment">// Core Features</span><br>
-                    - Product browsing & filtering<br>
-                    - Shopping cart & checkout<br>
-                    - Order management & history<br>
-                    - Admin inventory & sales reporting<br>
-                    - Secure user registration and authentication
+                <h3>Online Grocery Management System (Final Year Project)</h3>
+                <p style="color:var(--text-tertiary); font-weight: 600; font-size: 0.95rem; margin-bottom: 1.5rem;">Oct 2025 – Apr 2026 <span style="margin:0 0.5rem; color:var(--border-medium);">|</span> Virtual University of Pakistan</p>
+                <p style="color:var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">Developed a full-stack web application that streamlines grocery shopping by enabling customers to browse products, manage their carts, place orders, and complete purchases online. The system also provides administrators with tools to manage inventory, monitor orders, and generate sales and stock reports.</p>
+                
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Key Contributions</h4>
+                <ul style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem; padding-left: 1.5rem; list-style-type: disc; line-height: 1.7;">
+                    <li style="margin-bottom: 0.5rem;">Developed secure user registration and authentication for customers and administrators.</li>
+                    <li style="margin-bottom: 0.5rem;">Implemented product search and filtering by category, name, and price.</li>
+                    <li style="margin-bottom: 0.5rem;">Built shopping cart functionality with add, update, and remove operations.</li>
+                    <li style="margin-bottom: 0.5rem;">Developed an online order management system for seamless checkout.</li>
+                    <li style="margin-bottom: 0.5rem;">Created an admin dashboard to manage grocery items, product catalogs, and customer orders.</li>
+                    <li style="margin-bottom: 0.5rem;">Implemented inventory management and automated sales and stock reporting.</li>
+                    <li style="margin-bottom: 0.5rem;">Designed and managed a relational database using MySQL for efficient data storage and retrieval.</li>
+                </ul>
+
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Technologies & Skills</h4>
+                <div class="tech-tags">
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">XAMPP</span>
+                    <span class="tag">Web Development</span>
+                    <span class="tag">Database Design</span>
+                    <span class="tag">CRUD Operations</span>
+                    <span class="tag">Authentication</span>
+                    <span class="tag">Inventory Management</span>
                 </div>
             </div>
         </div>
