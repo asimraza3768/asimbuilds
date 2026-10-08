@@ -30,9 +30,34 @@
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const certId = urlParams.get('id');
+            const certFile = urlParams.get('file');
             const container = document.getElementById('cert-content');
 
-            if (certId && certificatesData[certId]) {
+            // Handle the new direct file paths from certifications.html
+            if (certFile) {
+                // Generate a readable title from the filename
+                let rawFilename = certFile.split('/').pop().replace('.pdf', '');
+                let readableTitle = decodeURIComponent(rawFilename);
+                
+                document.title = `${readableTitle} - Certificate | Asim Builds`;
+
+                container.innerHTML = `
+                    <h1 class="section-title" style="margin-bottom: 0.5rem; font-size: 1.5rem;">${readableTitle}</h1>
+                    
+                    <div style="margin-bottom: 2rem; display: flex; gap: 1rem;">
+                        <a href="${certFile}" download class="btn btn-primary">Download Certificate</a>
+                        <a href="certifications.html" class="btn btn-secondary">Back to Certifications</a>
+                    </div>
+
+                    <div class="pdf-viewer-container">
+                        <iframe src="${certFile}" title="${readableTitle} Certificate">
+                            <p>Your browser does not support PDFs. <a href="${certFile}">Download the PDF</a>.</p>
+                        </iframe>
+                    </div>
+                `;
+            } 
+            // Handle the legacy IDs from the index.html featured section
+            else if (certId && typeof certificatesData !== 'undefined' && certificatesData[certId]) {
                 const cert = certificatesData[certId];
                 const pdfPath = `assets/certificates/${cert.file}`;
                 
@@ -54,11 +79,13 @@
                         </iframe>
                     </div>
                 `;
-            } else {
+            } 
+            // Fallback if neither works
+            else {
                 container.innerHTML = `
                     <h1 class="section-title">Certificate Not Found</h1>
                     <p>The requested certificate could not be located in the directory.</p>
-                    <a href="index.html" class="btn btn-primary" style="margin-top: 2rem;">Return Home</a>
+                    <a href="certifications.html" class="btn btn-primary" style="margin-top: 2rem;">Return to Certifications</a>
                 `;
             }
         });
