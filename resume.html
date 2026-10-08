@@ -3,23 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asim Raza | Resume</title>
+    <title>Resume - Asim Raza</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Force body to take full height for PDF viewing */
-        body, html { height: 100%; margin: 0; padding: 0; background: var(--bg-primary); }
+        .resume-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem 4rem 1rem;
+            width: 100%;
+            margin-top: 5rem;
+        }
+        .resume-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .resume-viewer {
+            width: 95vw;
+            height: 90vh;
+            border: 1px solid var(--border-medium);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .resume-viewer {
+                width: 98vw;
+                height: 85vh;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="pdf-main-container">
-        <div class="pdf-header-actions">
-            <a href="index.html" class="btn btn-secondary">← Back to Website</a>
-            <a href="assets/Asim-Raza-Data-Engineer-Resume.pdf" download class="btn btn-primary">Download Resume ↓</a>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Asim Builds</a>
+            <ul class="nav-links">
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-secondary">Back to Website</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="resume-container">
+        <div class="resume-actions">
+            <a href="assets/Asim-Raza-Data-Engineer-Resume.pdf" download class="btn btn-primary">Download Resume</a>
+            <a href="index.html" class="btn btn-secondary">Back to Website</a>
         </div>
-        <div class="pdf-viewer-container">
-            <iframe src="assets/Asim-Raza-Data-Engineer-Resume.pdf#toolbar=0" title="Asim Raza Resume"></iframe>
-        </div>
-    </div>
+        <!-- Fully expanded viewport iframe -->
+        <iframe src="assets/Asim-Raza-Data-Engineer-Resume.pdf" class="resume-viewer" title="Asim Raza Resume"></iframe>
+    </main>
+
 </body>
 </html>
