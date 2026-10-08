@@ -3,128 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certifications | Asim Raza — Data Engineer</title>
-    <meta name="description" content="Continuous learning in data engineering, cloud platforms, software development, and related technologies.">
-    <link rel="canonical" href="https://asimbuilds.dev/certifications.html">
-    
-    <!-- Favicon & Open Graph -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <meta property="og:title" content="Certifications | Asim Raza">
-    <meta property="og:description" content="Continuous learning in data engineering, cloud platforms, software development, and related technologies.">
-    <meta property="og:url" content="https://asimbuilds.dev/certifications.html">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://asimbuilds.dev/assets/og-image.png">
-
+    <title>Certifications | Asim Raza</title>
+    <meta name="description" content="Professional certifications and learning milestones of Asim Raza.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
         <nav class="nav-container">
             <a href="index.html" class="logo">Asim Builds</a>
+            <ul class="nav-links">
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="blog.html">Writing</a></li>
+                <li><a href="certifications.html" class="active">Certifications</a></li>
+            </ul>
             <div class="nav-actions">
-                <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
+                <a href="resume.html" class="btn btn-secondary">View Resume</a>
             </div>
+            <button class="hamburger" aria-label="Toggle Navigation">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
     </header>
 
-    <main class="container" style="padding: 6rem 0; min-height: 80vh;">
-        <div class="section-header reveal">
-            <span class="section-num">Certifications</span>
-            <h1 class="section-title">Certifications & Learning</h1>
-            <p class="section-subtitle">A comprehensive list of my academic and professional certifications in Data Engineering, Software Development, and Cloud Computing.</p>
-        </div>
+    <main>
+        <section class="container" style="padding-top: 6rem; padding-bottom: 4rem;">
+            <div class="section-header reveal">
+                <span class="section-num">Learning</span>
+                <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 3.5rem);">Certifications</h1>
+                <p class="section-subtitle">A collection of technical certifications and professional milestones.</p>
+            </div>
 
-        <div class="filter-group reveal delay-1" id="filter-container">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="datacamp">DataCamp</button>
-            <button class="filter-btn" data-filter="ibm">IBM / Coursera</button>
-            <button class="filter-btn" data-filter="deloitte">Deloitte</button>
-            <button class="filter-btn" data-filter="bcg">BCG</button>
-            <button class="filter-btn" data-filter="other">Other</button>
-        </div>
+            <!-- Optional Filter System (if you use one in JS, otherwise these display normally) -->
+            <div class="filter-group reveal delay-1">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Data Engineering">Data Engineering</button>
+                <button class="filter-btn" data-filter="Other">Other</button>
+            </div>
 
-        <!-- Fallback Message (Overwritten by JS if successful) -->
-        <div id="cert-fallback" style="text-align: center; padding: 4rem; color: var(--text-secondary);" class="reveal delay-2">
-            Loading certificates... If this takes too long, please check your JavaScript configuration.
-        </div>
+            <div class="grid-3 reveal delay-2" id="cert-grid">
+                <!-- DataCamp 1 -->
+                <div class="cert-card" data-category="Data Engineering">
+                    <span class="cert-provider">DataCamp</span>
+                    <h3>Data Engineer in Python</h3>
+                    <p>End-to-end Python data engineering, covering data ingestion, cleaning, and software engineering principles.</p>
+                    <a href="certificate.html?id=datacamp-data-eng-python" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
+                </div>
+                
+                <!-- DataCamp 2 -->
+                <div class="cert-card" data-category="Data Engineering">
+                    <span class="cert-provider">DataCamp</span>
+                    <h3>Associate Data Engineer in SQL</h3>
+                    <p>Comprehensive training on database design, relational databases, and writing optimized SQL queries.</p>
+                    <a href="certificate.html?id=datacamp-assoc-data-eng-sql" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
+                </div>
+                
+                <!-- DataCamp 3 -->
+                <div class="cert-card" data-category="Data Engineering">
+                    <span class="cert-provider">DataCamp</span>
+                    <h3>Intro to Apache Airflow</h3>
+                    <p>Building and orchestrating data pipelines using Apache Airflow workflows.</p>
+                    <a href="certificate.html?id=datacamp-airflow" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
+                </div>
 
-        <div class="grid-3" id="certifications-grid">
-            <!-- Populated by JS -->
-        </div>
+                <!-- NEW: Heritage Photo Contest -->
+                <div class="cert-card" data-category="Other">
+                    <span class="cert-provider">All Pakistan Minorities Heritage Photo Contest, Islamabad</span>
+                    <h3>Certificate of Appreciation</h3>
+                    <p>Certificate of Appreciation for participation in the All Pakistan Minorities Heritage Photo Contest in Islamabad.</p>
+                    <a href="certificate.html?id=heritage-photo-contest" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-bottom" style="border: none; padding-top: 2rem;">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="logo" style="margin-bottom: 0.5rem; font-size: 1.25rem;">Asim Builds</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8;">Asim Raza<br>Data Engineer<br>Gojra, Pakistan</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#skills">Skills</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://github.com/asimraza3768" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/asimraza3768/" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="mailto:razaasim5700@gmail.com">Email</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Content</h4>
+                    <ul>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="blog.html">Writing</a></li>
+                        <li><a href="sitemap.xml">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <span>&copy; 2026 Asim Raza. All rights reserved.</span>
             </div>
         </div>
     </footer>
-
-    <!-- Order is important: Data first, UI logic second, global animations last -->
-    <script src="certificates.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const grid = document.getElementById('certifications-grid');
-            const fallback = document.getElementById('cert-fallback');
-            const filterBtns = document.querySelectorAll('.filter-btn');
-
-            // Fallback if data file is missing
-            if (typeof certificatesData === 'undefined') {
-                fallback.innerHTML = "Certificates could not be loaded. Please check the certificate data configuration.";
-                return;
-            }
-
-            const renderCerts = (filter) => {
-                grid.innerHTML = '';
-                fallback.style.display = 'none';
-                
-                const keys = Object.keys(certificatesData);
-                let renderedCount = 0;
-                
-                keys.forEach((key, index) => {
-                    const cert = certificatesData[key];
-                    if (filter === 'all' || cert.category === filter) {
-                        renderedCount++;
-                        // Stagger the reveal animation delay based on index
-                        const delayClass = `delay-${(renderedCount % 3) + 1}`;
-                        
-                        const card = document.createElement('div');
-                        // Use .active immediately since injected after page load
-                        card.className = `cert-card reveal ${delayClass} active`; 
-                        
-                        card.innerHTML = `
-                            <span class="cert-provider">${cert.provider}</span>
-                            <h3>${cert.title}</h3>
-                            <p>${cert.description}</p>
-                            <a href="certificate.html?id=${key}" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
-                        `;
-                        grid.appendChild(card);
-                    }
-                });
-
-                if (renderedCount === 0) {
-                    fallback.style.display = 'block';
-                    fallback.innerHTML = "No certificates found for this category.";
-                }
-            };
-
-            // Initial Render
-            renderCerts('all');
-
-            // Filter Click Events
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    e.target.classList.add('active');
-                    renderCerts(e.target.getAttribute('data-filter'));
-                });
-            });
-        });
-    </script>
     
-    <!-- This enables the scroll opacity animations globally -->
     <script src="script.js"></script>
 </body>
 </html>

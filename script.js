@@ -380,3 +380,50 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize both pipelines if they exist on the page
     new PipelineInteractive('interactive-job-market');
     new PipelineInteractive('interactive-weather');
+
+    // ==========================================================================
+    // SENTINEL AI SIMULATOR
+    // ==========================================================================
+    class SentinelSimulator {
+        constructor(containerId) {
+            this.container = document.getElementById(containerId);
+            if (!this.container) return;
+            
+            this.btn = this.container.querySelector('.run-sim-btn');
+            this.steps = this.container.querySelectorAll('.sentinel-step');
+            this.current = -1;
+            this.interval = null;
+
+            this.btn.addEventListener('click', () => this.run());
+            
+            // Show the first step gently on load
+            if(this.steps.length > 0) this.steps[0].classList.add('active');
+        }
+
+        run() {
+            this.btn.disabled = true;
+            this.steps.forEach(s => s.classList.remove('active', 'completed'));
+            
+            this.current = 0;
+            this.steps[this.current].classList.add('active');
+            
+            this.interval = setInterval(() => {
+                this.steps[this.current].classList.remove('active');
+                this.steps[this.current].classList.add('completed');
+                this.current++;
+                
+                if (this.current >= this.steps.length) {
+                    clearInterval(this.interval);
+                    this.btn.disabled = false;
+                    this.btn.innerHTML = '↻ Run Again';
+                    
+                    // Light up the last step permanently
+                    this.steps[this.steps.length - 1].classList.add('completed');
+                } else {
+                    this.steps[this.current].classList.add('active');
+                }
+            }, 1200); // 1.2s per step keeps it lightweight and quick
+        }
+    }
+
+    new SentinelSimulator('interactive-sentinel');

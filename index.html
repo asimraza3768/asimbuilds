@@ -63,7 +63,7 @@
             </div>
         </section>
 
-        <!-- 01. Projects Section (Overview Cards immediately visible) -->
+        <!-- 01. Projects Section -->
         <section id="projects" class="container">
             <div class="section-header reveal">
                 <span class="section-num">01 / Projects</span>
@@ -75,6 +75,7 @@
                 <!-- Card 1 -->
                 <div class="card project-summary-card reveal delay-1">
                     <div>
+                        <span class="project-type-label">Data Engineering Project</span>
                         <h3>Job Market Intelligence Platform</h3>
                         <p style="display:block;">An end-to-end data pipeline processing job listings across multiple cities into a Medallion architecture for skill demand analytics.</p>
                         <div class="tech-tags">
@@ -89,6 +90,7 @@
                 <!-- Card 2 -->
                 <div class="card project-summary-card reveal delay-2">
                     <div>
+                        <span class="project-type-label">Data Engineering Project</span>
                         <h3>Weather Data Engineering Pipeline</h3>
                         <p style="display:block;">Automated pipeline ingesting live weather data for 5 major cities in Pakistan, applying transformations, and preparing data for dashboard analytics.</p>
                         <div class="tech-tags">
@@ -100,9 +102,25 @@
                     <button class="btn btn-secondary open-modal" data-target="modal-weather">View Project →</button>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="card project-summary-card reveal delay-3">
+                <!-- Card 3 (NEW Sentinel AI) -->
+                <div class="card project-summary-card reveal delay-1">
                     <div>
+                        <span class="project-type-label">Hackathon Project</span>
+                        <h3>Sentinel AI</h3>
+                        <p style="display:block;">A web-based disaster management platform designed to predict localized flood risks and support emergency response through machine learning, live meteorological data and interactive geospatial mapping.</p>
+                        <div class="tech-tags">
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">React</span>
+                            <span class="tag">XGBoost</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary open-modal" data-target="modal-sentinel">View Project →</button>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card project-summary-card reveal delay-2">
+                    <div>
+                        <span class="project-type-label">Final Year Project</span>
                         <h3>Online Grocery Management System</h3>
                         <p style="display:block;">A full-stack grocery shopping application where customers can browse products, manage carts, place orders, and view purchases.</p>
                         <div class="tech-tags">
@@ -346,7 +364,7 @@
         </section>
     </main>
 
-    <!-- PROJECT MODALS (Progressive Disclosure) -->
+    <!-- PROJECT MODALS -->
     
     <!-- JOB MARKET MODAL -->
     <div id="modal-job-market" class="project-modal">
@@ -500,6 +518,103 @@
         </div>
     </div>
 
+    <!-- SENTINEL AI MODAL -->
+    <div id="modal-sentinel" class="project-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="project-content">
+                <h3>Sentinel AI</h3>
+                <p style="color:var(--text-tertiary); font-weight: 600; font-size: 0.95rem; margin-bottom: 1.5rem;">Hackathon Project</p>
+                <p style="color:var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem;">Sentinel AI is a web-based disaster management platform designed to predict localized flood risks and coordinate emergency response efforts. The system processes meteorological data through a machine learning model to identify potential threat zones while providing a spatial mapping interface for citizens, relief NGOs and government administrators to track and manage active crises.</p>
+                
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Key Contributions</h4>
+                <ul style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2.5rem; padding-left: 1.5rem; list-style-type: disc; line-height: 1.7;">
+                    <li style="margin-bottom: 0.5rem;">Built a full-stack disaster management platform using React, Vite, FastAPI and Python.</li>
+                    <li style="margin-bottom: 0.5rem;">Integrated meteorological data from the Open-Meteo API.</li>
+                    <li style="margin-bottom: 0.5rem;">Implemented an XGBoost machine learning model using 17 climate predictors to calculate probabilistic flood-risk scores.</li>
+                    <li style="margin-bottom: 0.5rem;">Built interactive geospatial visualization using Leaflet.js.</li>
+                    <li style="margin-bottom: 0.5rem;">Implemented role-based workflows for citizens, NGOs and administrators.</li>
+                    <li style="margin-bottom: 0.5rem;">Added GPS-tagged SOS reporting for citizens.</li>
+                    <li style="margin-bottom: 0.5rem;">Implemented Haversine-based distance calculations to determine whether users are within active hazard-zone radii.</li>
+                    <li style="margin-bottom: 0.5rem;">Built administrative workflows for NGO verification and hazard-zone management.</li>
+                    <li style="margin-bottom: 0.5rem;">Implemented dynamic hazard-zone generation based on current weather data.</li>
+                </ul>
+
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Architecture Overview</h4>
+                <div class="project-arch-text" style="margin-bottom: 2.5rem; text-align: center;">
+                    Open-Meteo API <br>↓<br>
+                    17 Climate Predictors <br>↓<br>
+                    XGBoost Machine Learning Model <br>↓<br>
+                    Probabilistic Flood Risk Score <br>↓<br>
+                    FastAPI Backend <br>↓<br>
+                    React + Vite Frontend <br>↓<br>
+                    Leaflet Geospatial Interface <br>↓<br>
+                    Citizens · NGOs · Administrators
+                    <p style="margin-top: 1.5rem; font-family: var(--font-main); font-size: 0.95rem; color: var(--text-secondary); font-style: normal; text-align: left;">Weather information is processed by a machine learning model to estimate flood risk. The results are then displayed on an interactive map to support emergency response.</p>
+                </div>
+
+                <!-- SENTINEL INTERACTIVE SIMULATOR -->
+                <div class="sentinel-sim-container" id="interactive-sentinel">
+                    <div class="sentinel-header">
+                        <div>
+                            <h4>How Sentinel AI Works</h4>
+                        </div>
+                        <button class="btn btn-primary run-sim-btn">▶ Run Simulation</button>
+                    </div>
+                    <div class="sentinel-flow">
+                        <div class="sentinel-step">
+                            <div class="sentinel-icon">1</div>
+                            <div class="sentinel-content">
+                                <div class="sentinel-title">Collect Weather Data <span class="sentinel-tech">Open-Meteo API</span></div>
+                                <p class="sentinel-desc">Weather information provides the environmental data used by the prediction system.</p>
+                            </div>
+                        </div>
+                        <div class="sentinel-step">
+                            <div class="sentinel-icon">2</div>
+                            <div class="sentinel-content">
+                                <div class="sentinel-title">Analyze Climate Conditions <span class="sentinel-tech">17 Climate Predictors</span></div>
+                                <p class="sentinel-desc">Multiple climate variables are evaluated by the machine learning model.</p>
+                            </div>
+                        </div>
+                        <div class="sentinel-step">
+                            <div class="sentinel-icon">3</div>
+                            <div class="sentinel-content">
+                                <div class="sentinel-title">Predict Flood Risk <span class="sentinel-tech">XGBoost</span></div>
+                                <p class="sentinel-desc">The model calculates a probabilistic flood-risk score.</p>
+                            </div>
+                        </div>
+                        <div class="sentinel-step">
+                            <div class="sentinel-icon">4</div>
+                            <div class="sentinel-content">
+                                <div class="sentinel-title">Identify Threat Zones <span class="sentinel-tech">Hazard Zones</span></div>
+                                <p class="sentinel-desc">Potential risk areas are represented spatially on the map.</p>
+                            </div>
+                        </div>
+                        <div class="sentinel-step">
+                            <div class="sentinel-icon">5</div>
+                            <div class="sentinel-content">
+                                <div class="sentinel-title">Detect Nearby Users <span class="sentinel-tech">Haversine Distance Calculation</span></div>
+                                <p class="sentinel-desc">The system calculates the distance between selected user coordinates and active hazard zones.</p>
+                            </div>
+                        </div>
+                        <div class="sentinel-step">
+                            <div class="sentinel-icon">6</div>
+                            <div class="sentinel-content">
+                                <div class="sentinel-title">Support Emergency Response <span class="sentinel-tech">SOS · NGO · Admin Workflows</span></div>
+                                <p class="sentinel-desc">Citizens can report emergencies while relief organizations and administrators coordinate response activities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Technologies</h4>
+                <div class="tech-tags">
+                    <span class="tag">React</span><span class="tag">Vite</span><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Open-Meteo API</span><span class="tag">Leaflet.js</span><span class="tag">REST API</span><span class="tag">Role-Based Access Control</span><span class="tag">Machine Learning</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- GROCERY MODAL -->
     <div id="modal-grocery" class="project-modal">
         <div class="modal-content">
@@ -507,30 +622,22 @@
             <div class="project-content">
                 <h3>Online Grocery Management System (Final Year Project)</h3>
                 <p style="color:var(--text-tertiary); font-weight: 600; font-size: 0.95rem; margin-bottom: 1.5rem;">Oct 2025 – Apr 2026 <span style="margin:0 0.5rem; color:var(--border-medium);">|</span> Virtual University of Pakistan</p>
-                <p style="color:var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">Developed a full-stack web application that streamlines grocery shopping by enabling customers to browse products, manage their carts, place orders, and complete purchases online. The system also provides administrators with tools to manage inventory, monitor orders, and generate sales and stock reports.</p>
+                <p style="color:var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">Developed a full-stack web application that streamlines grocery shopping by enabling customers to browse products, manage their carts, place orders and complete purchases online. The system also provides administrators with tools to manage inventory, monitor orders and generate sales and stock reports.</p>
                 
                 <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Key Contributions</h4>
                 <ul style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2rem; padding-left: 1.5rem; list-style-type: disc; line-height: 1.7;">
                     <li style="margin-bottom: 0.5rem;">Developed secure user registration and authentication for customers and administrators.</li>
-                    <li style="margin-bottom: 0.5rem;">Implemented product search and filtering by category, name, and price.</li>
-                    <li style="margin-bottom: 0.5rem;">Built shopping cart functionality with add, update, and remove operations.</li>
-                    <li style="margin-bottom: 0.5rem;">Developed an online order management system for seamless checkout.</li>
-                    <li style="margin-bottom: 0.5rem;">Created an admin dashboard to manage grocery items, product catalogs, and customer orders.</li>
-                    <li style="margin-bottom: 0.5rem;">Implemented inventory management and automated sales and stock reporting.</li>
+                    <li style="margin-bottom: 0.5rem;">Implemented product search and filtering by category, name and price.</li>
+                    <li style="margin-bottom: 0.5rem;">Built shopping cart functionality with add, update and remove operations.</li>
+                    <li style="margin-bottom: 0.5rem;">Developed an online order management system for checkout.</li>
+                    <li style="margin-bottom: 0.5rem;">Created an admin dashboard to manage grocery items, product catalogs and customer orders.</li>
+                    <li style="margin-bottom: 0.5rem;">Implemented inventory management and sales and stock reporting.</li>
                     <li style="margin-bottom: 0.5rem;">Designed and managed a relational database using MySQL for efficient data storage and retrieval.</li>
                 </ul>
 
                 <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">Technologies & Skills</h4>
                 <div class="tech-tags">
-                    <span class="tag">PHP</span>
-                    <span class="tag">MySQL</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">XAMPP</span>
-                    <span class="tag">Web Development</span>
-                    <span class="tag">Database Design</span>
-                    <span class="tag">CRUD Operations</span>
-                    <span class="tag">Authentication</span>
-                    <span class="tag">Inventory Management</span>
+                    <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">XAMPP</span><span class="tag">Web Development</span><span class="tag">Database Design</span><span class="tag">CRUD Operations</span><span class="tag">Authentication</span><span class="tag">Inventory Management</span>
                 </div>
             </div>
         </div>

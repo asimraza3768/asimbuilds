@@ -459,3 +459,49 @@ footer { padding: 5rem 0 2rem; background: var(--bg-primary); }
   .data-packet { display: none !important; }
   .visual-data-card, .visual-check-item, .panel-img { animation: none !important; opacity: 1 !important; transform: none !important; }
 }
+
+/* ==========================================================================
+   PROJECT GRID & LABELS
+   ========================================================================== */
+/* Update the existing projects grid to a 2x2 layout */
+.projects-overview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); }
+.project-type-label { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--accent-color); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.5rem; }
+
+/* ==========================================================================
+   FULL SCREEN PDF VIEWER
+   ========================================================================== */
+.pdf-main-container { width: 95vw; max-width: none; margin: 0 auto; padding: 2rem 0; display: flex; flex-direction: column; align-items: center; }
+.pdf-header-actions { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; width: 100%; flex-wrap: wrap; }
+.pdf-viewer-container { width: 100%; height: 88vh; min-height: 600px; border: 1px solid var(--border-medium); border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-secondary); box-shadow: var(--shadow-md); }
+.pdf-viewer-container iframe { width: 100%; height: 100%; border: none; display: block; }
+
+/* ==========================================================================
+   SENTINEL AI SIMULATOR (Vertical Flow)
+   ========================================================================== */
+.sentinel-sim-container { background: var(--bg-secondary); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); margin: 2rem 0; box-shadow: var(--shadow-sm); }
+.sentinel-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-medium); padding-bottom: 1.5rem; }
+.sentinel-header h4 { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.01em; margin-bottom: 0.25rem; }
+.sentinel-header p { color: var(--text-secondary); font-size: 1.05rem; }
+
+.sentinel-flow { display: flex; flex-direction: column; position: relative; }
+.sentinel-step { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 0; padding-bottom: 2.5rem; position: relative; opacity: 0.4; transition: opacity 0.4s ease, transform 0.4s ease; transform: translateX(-10px); }
+.sentinel-step::after { content: ''; position: absolute; left: 23px; top: 48px; bottom: 0; width: 2px; background: var(--border-medium); z-index: 1; }
+.sentinel-step:last-child { padding-bottom: 0; }
+.sentinel-step:last-child::after { display: none; }
+
+.sentinel-step.active, .sentinel-step.completed { opacity: 1; transform: translateX(0); }
+.sentinel-icon { width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background: var(--bg-primary); border: 2px solid var(--border-strong); display: flex; align-items: center; justify-content: center; font-weight: 700; z-index: 2; position: relative; font-family: var(--font-mono); font-size: 1.1rem; color: var(--text-secondary); transition: all 0.3s ease; }
+.sentinel-step.active .sentinel-icon { background: var(--accent-color); color: var(--bg-primary); border-color: var(--accent-color); box-shadow: 0 0 15px rgba(14, 116, 144, 0.3); }
+.sentinel-step.completed .sentinel-icon { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); }
+
+.sentinel-content { padding-top: 0.5rem; }
+.sentinel-title { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.75rem; }
+.sentinel-tech { font-family: var(--font-mono); font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 20px; color: var(--accent-color); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.sentinel-desc { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-top: 0.5rem; }
+
+@media (max-width: 768px) {
+  .projects-overview-grid { grid-template-columns: 1fr; }
+  .pdf-viewer-container { height: 80vh; min-height: 500px; }
+  .sentinel-sim-container { padding: 1.5rem; }
+  .sentinel-step { gap: 1rem; }
+}
