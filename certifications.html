@@ -7,12 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Provider Filters */
         .filters {
             display: flex;
             gap: 0.75rem;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
         .filter-btn {
             background: var(--bg-secondary);
@@ -30,12 +31,123 @@
             color: var(--bg-primary);
             border-color: var(--text-primary);
         }
+
+        /* Search Bar */
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--border-medium);
+            border-radius: 99px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: var(--text-primary);
+        }
+
+        /* Skills Filter */
+        .skills-filter-container {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .skills-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .skill-chip {
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            padding: 0.4rem 1rem;
+            border-radius: 99px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .skill-chip:hover {
+            border-color: var(--text-secondary);
+        }
+        .skill-chip.active {
+            background: var(--bg-tertiary);
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+
+        /* Results & Reset Action Bar */
+        .filter-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-medium);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .cert-count {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .btn-reset {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        /* Grid & Cards */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.5rem;
         }
         .cert-card.hidden {
+            display: none;
+        }
+        .card-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 0.5rem;
+            flex-direction: column;
+        }
+        .card-actions .btn {
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 0.6rem 1rem;
+        }
+        .no-results {
+            text-align: center;
+            padding: 4rem 1rem;
+            width: 100%;
+            grid-column: 1 / -1;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px dashed var(--border-medium);
             display: none;
         }
     </style>
@@ -64,6 +176,12 @@
             <p class="section-subtitle">Continuous learning and professional development.</p>
         </div>
 
+        <!-- 1. Search Bar -->
+        <div class="search-container">
+            <input type="text" id="certSearch" class="search-input" placeholder="Search by title, provider, or keyword..." aria-label="Search certifications">
+        </div>
+
+        <!-- 2. Provider Filters -->
         <div class="filters">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="datacamp">DataCamp</button>
@@ -71,157 +189,226 @@
             <button class="filter-btn" data-filter="coursera">Coursera</button>
             <button class="filter-btn" data-filter="deloitte">Deloitte</button>
             <button class="filter-btn" data-filter="bcg">BCG</button>
+            <button class="filter-btn" data-filter="pwc">PwC</button>
+            <button class="filter-btn" data-filter="kpmg">KPMG</button>
             <button class="filter-btn" data-filter="other">Other</button>
         </div>
 
+        <!-- 3. Skills & Technologies Filter -->
+        <div class="skills-filter-container">
+            <h2 class="skills-title">Filter by Skills & Technologies</h2>
+            <div class="skills-grid">
+                <!-- Data Engineering -->
+                <button class="skill-chip" data-skill="Data Engineering">Data Engineering</button>
+                <button class="skill-chip" data-skill="ETL / ELT">ETL / ELT</button>
+                <button class="skill-chip" data-skill="Data Warehousing">Data Warehousing</button>
+                <button class="skill-chip" data-skill="Data Modeling">Data Modeling</button>
+                <button class="skill-chip" data-skill="Data Integration">Data Integration</button>
+                <button class="skill-chip" data-skill="Data Pipelines">Data Pipelines</button>
+                <button class="skill-chip" data-skill="Data Cleaning">Data Cleaning</button>
+                <!-- Programming & Tools -->
+                <button class="skill-chip" data-skill="Python">Python</button>
+                <button class="skill-chip" data-skill="SQL">SQL</button>
+                <button class="skill-chip" data-skill="Git">Git</button>
+                <button class="skill-chip" data-skill="Apache Airflow">Apache Airflow</button>
+                <button class="skill-chip" data-skill="Databases">Databases</button>
+                <button class="skill-chip" data-skill="Excel">Excel</button>
+                <!-- Analytics & Professional -->
+                <button class="skill-chip" data-skill="Data Analytics">Data Analytics</button>
+                <button class="skill-chip" data-skill="Data Science">Data Science</button>
+                <button class="skill-chip" data-skill="Tax Research">Tax Research</button>
+                <button class="skill-chip" data-skill="Tax">Tax</button>
+                <button class="skill-chip" data-skill="Financial Analysis">Financial Analysis</button>
+                <button class="skill-chip" data-skill="Business Research">Business Research</button>
+                <button class="skill-chip" data-skill="Communication">Communication</button>
+                <button class="skill-chip" data-skill="Presentation Skills">Presentation Skills</button>
+                <button class="skill-chip" data-skill="Technical Problem Solving">Technical Problem Solving</button>
+            </div>
+        </div>
+
+        <!-- Action Bar (Count + Reset) -->
+        <div class="filter-actions">
+            <span class="cert-count" id="certCount">Loading...</span>
+            <button id="resetFilters" class="btn btn-secondary btn-reset">Reset Filters</button>
+        </div>
+
+        <!-- Certificates Grid -->
         <div class="cert-grid" id="cert-grid">
             
+            <!-- No Results Message -->
+            <div id="noResults" class="no-results">
+                <h3>No certificates found</h3>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Try adjusting your search or clearing the filters.</p>
+            </div>
+
+            <!-- PwC CERTIFICATE -->
+            <div class="cert-card" data-provider="pwc" data-skills="Tax Research, Tax, Financial Analysis, Business Research">
+                <span class="cert-provider">PwC</span>
+                <h3>US Tax Job Simulation</h3>
+                <p>Completed practical tasks covering book-to-tax differences, taxable income calculation and preparation of a client summary.</p>
+                <div class="card-actions">
+                    <a href="certificate.html?file=assets%2Fcertificates%2Fcertificate%20of%20tax%20simulation%20by%20forage.pdf" class="btn btn-secondary">View Certificate →</a>
+                    <a href="https://www.theforage.com/simulations/pwc-us/tax-l9rj/completed" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Verify on Forage ↗</a>
+                </div>
+            </div>
+
+            <!-- KPMG CERTIFICATE -->
+            <div class="cert-card" data-provider="kpmg" data-skills="Tax Research, Tax, Excel, Financial Analysis, Business Research">
+                <span class="cert-provider">KPMG</span>
+                <h3>US Career Catalyst: Tax</h3>
+                <p>Completed practical tasks involving tax research, Excel data modelling and preparation of an IRAC research memo.</p>
+                <div class="card-actions">
+                    <a href="certificate.html?file=assets%2Fcertificates%2FCertificate%20of%20Career%20Catalyst%20Tax%20by%20forage.pdf" class="btn btn-secondary">View Certificate →</a>
+                    <a href="https://www.theforage.com/simulations/kpmg-us/tax-b0hl/completed" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Verify on Forage ↗</a>
+                </div>
+            </div>
+
             <!-- DATACAMP CERTIFICATES -->
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Data Engineering">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Associate Data Engineer</h3>
                 <p>DataCamp certification covering foundational concepts for data engineering.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Associate%20Data%20Engineer%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="SQL, Data Engineering, Data Warehousing, Data Modeling">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Associate Data Engineer in SQL</h3>
                 <p>DataCamp certification covering database architecture and relational queries.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Associate%20Data%20Engineer%20in%20SQL%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python, Data Cleaning, Data Engineering">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Cleaning Data in Python</h3>
                 <p>DataCamp certification covering Python data cleaning and preparation.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Cleaning%20Data%20in%20Python%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python, Data Engineering, ETL / ELT, Data Pipelines">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Data Engineer in Python</h3>
                 <p>DataCamp certification covering Python-based data engineering processes.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Data%20Engineer%20in%20Python%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python, Data Engineering, ETL / ELT, Data Pipelines, Data Integration">
                 <span class="cert-provider">DataCamp</span>
                 <h3>ETL and ELT in Python</h3>
                 <p>DataCamp certification covering data pipeline extraction and loading patterns.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20ETL%20and%20ELT%20in%20Python%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Git">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Intermediate Git</h3>
                 <p>DataCamp certification covering advanced version control operations.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Intermediate%20Git%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python, Data Integration">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Intermediate Importing Data in Python</h3>
                 <p>DataCamp certification covering advanced data ingestion techniques.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Intermediate%20Importing%20Data%20in%20Python%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Intermediate Python for Developers</h3>
                 <p>DataCamp certification covering intermediate Python programming concepts.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Intermediate%20Python%20for%20Developers%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="SQL">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Intermediate SQL</h3>
                 <p>DataCamp certification covering intermediate database querying.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Intermediate%20SQL%20BY%20DataCamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Apache Airflow, Data Pipelines, Python">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Introduction to Apache Airflow</h3>
                 <p>DataCamp certification covering pipeline orchestration with Airflow.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Introduction%20to%20Apache%20Airflow%20in%20Python%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python, Data Integration">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Introduction to APIs in Python</h3>
                 <p>DataCamp certification covering REST APIs and web data ingestion.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Introduction%20to%20APIs%20in%20Python%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Git">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Introduction to Git</h3>
                 <p>DataCamp certification covering version control fundamentals.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Introduction%20to%20Git%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python, Data Integration">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Introduction to Importing Data in Python</h3>
                 <p>DataCamp certification covering foundational Python data ingestion.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Introduction%20to%20Importing%20Data%20in%20Python%20By%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Introduction to Python for Developers</h3>
                 <p>DataCamp certification covering Python fundamentals.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Introduction%20to%20Python%20for%20Developers%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="SQL, Databases">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Introduction to Relational Databases in SQL</h3>
                 <p>DataCamp certification covering relational architecture and constraints.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Introduction%20to%20Relational%20Databases%20in%20SQL%20BY%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="SQL, Data Warehousing, Databases">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Introduction to Snowflake SQL</h3>
                 <p>DataCamp certification covering Snowflake cloud data warehouse queries.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Introduction%20to%20Snowflake%20SQL%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python, Data Engineering">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Software Engineering Principles in Python</h3>
                 <p>DataCamp certification covering clean code and testing in Python.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Software%20Engineering%20Principles%20in%20Python%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python, Data Integration, Data Cleaning">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Streamlined Data Ingestion with pandas</h3>
                 <p>DataCamp certification covering efficient data manipulation.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Streamlined%20Data%20Ingestion%20with%20pandas.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Data Engineering, Data Warehousing">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Understanding Cloud Computing</h3>
                 <p>DataCamp certification covering cloud infrastructure fundamentals.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Understanding%20Cloud%20Computing%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Data Engineering, Data Pipelines, ETL / ELT">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Understanding Data Engineering</h3>
                 <p>DataCamp certification covering data engineering lifecycles and platforms.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Understanding%20Data%20Enginnering.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Python">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Writing Efficient Python Code</h3>
                 <p>DataCamp certification covering Python optimization and performance profiling.</p>
                 <a href="certificate.html?file=assets/certificates/certificate%20of%20Writing%20Efficient%20Python%20Code%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Data Warehousing, Data Modeling, Data Engineering">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Data Warehousing Concepts</h3>
                 <p>DataCamp certification covering dimensional modeling and data warehouse schemas.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20Data%20Warehousing%20Concepts%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="Databases, Data Modeling, SQL">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Database Design</h3>
                 <p>DataCamp certification covering normalization and database structural design.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20Database%20Design%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="SQL, Databases">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Introduction to SQL</h3>
                 <p>DataCamp certification covering fundamental SQL querying and aggregation.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20Introduction%20to%20SQL%20by%20Datacamp.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="datacamp">
+            <div class="cert-card" data-provider="datacamp" data-skills="SQL">
                 <span class="cert-provider">DataCamp</span>
                 <h3>Joining Data in SQL</h3>
                 <p>DataCamp certification covering advanced SQL joins and set theory.</p>
@@ -229,25 +416,25 @@
             </div>
 
             <!-- DELOITTE CERTIFICATES -->
-            <div class="cert-card" data-provider="deloitte">
+            <div class="cert-card" data-provider="deloitte" data-skills="Technical Problem Solving, Communication, Business Research">
                 <span class="cert-provider">Deloitte</span>
                 <h3>Technology Job Simulation</h3>
                 <p>Deloitte job simulation covering practical technical consulting workflows.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Technology%20Job%20Simulation%20by%20Deloitte.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="deloitte">
+            <div class="cert-card" data-provider="deloitte" data-skills="Technical Problem Solving, Communication, Business Research">
                 <span class="cert-provider">Deloitte</span>
                 <h3>Technology Job Simulation (Part 2)</h3>
                 <p>Deloitte job simulation covering continued technology workflows.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20of%20Technology%20Job%20Simulation%20by%20Deloitte-1.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="deloitte">
+            <div class="cert-card" data-provider="deloitte" data-skills="Data Analytics, Financial Analysis">
                 <span class="cert-provider">Deloitte</span>
                 <h3>Data Analytics Job Simulation</h3>
                 <p>Deloitte job simulation covering practical data analytics workflows.</p>
                 <a href="certificate.html?file=assets/certificates/Certificate%20Data%20Analytics%20Job%20Simulation%20by%20Deloitte.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="deloitte">
+            <div class="cert-card" data-provider="deloitte" data-skills="Data Analytics, Financial Analysis">
                 <span class="cert-provider">Deloitte</span>
                 <h3>Data Analytics Job Simulation (Part 2)</h3>
                 <p>Deloitte job simulation covering continued data analytics workflows.</p>
@@ -255,13 +442,13 @@
             </div>
 
             <!-- IBM CERTIFICATES -->
-            <div class="cert-card" data-provider="ibm">
+            <div class="cert-card" data-provider="ibm" data-skills="Python, Data Science, Data Analytics">
                 <span class="cert-provider">IBM</span>
                 <h3>Python for Data Science, AI & Development</h3>
                 <p>IBM certification covering comprehensive Python skills for analytical workflows.</p>
                 <a href="certificate.html?file=assets/certificates/Python%20for%20Data%20Science,%20AI%20%26%20Development.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="ibm">
+            <div class="cert-card" data-provider="ibm" data-skills="Python, Data Engineering, Data Pipelines">
                 <span class="cert-provider">IBM</span>
                 <h3>Python Project for Data Engineering</h3>
                 <p>IBM certification covering practical data engineering project implementation.</p>
@@ -269,7 +456,7 @@
             </div>
 
             <!-- BCG CERTIFICATES -->
-            <div class="cert-card" data-provider="bcg">
+            <div class="cert-card" data-provider="bcg" data-skills="Data Science, Data Analytics, Business Research">
                 <span class="cert-provider">BCG</span>
                 <h3>Data Science Job Simulation</h3>
                 <p>BCG Forage job simulation covering data science and strategic analytics workflows.</p>
@@ -277,7 +464,7 @@
             </div>
 
             <!-- COURSERA CERTIFICATES -->
-            <div class="cert-card" data-provider="coursera">
+            <div class="cert-card" data-provider="coursera" data-skills="Communication">
                 <span class="cert-provider">Coursera</span>
                 <h3>University of Colorado</h3>
                 <p>Coursera certification covering specialized academic coursework.</p>
@@ -285,25 +472,25 @@
             </div>
 
             <!-- OTHER CERTIFICATES -->
-            <div class="cert-card" data-provider="other">
+            <div class="cert-card" data-provider="other" data-skills="Communication, Presentation Skills">
                 <span class="cert-provider">Other</span>
                 <h3>Management</h3>
                 <p>Professional certification covering management and organizational principles.</p>
                 <a href="certificate.html?file=assets/certificates/Management.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="other">
+            <div class="cert-card" data-provider="other" data-skills="Data Analytics, Data Science, Business Research">
                 <span class="cert-provider">Other</span>
                 <h3>Statistical Analysis of Data for Researchers</h3>
                 <p>Professional certification covering statistical evaluation and hypothesis testing.</p>
                 <a href="certificate.html?file=assets/certificates/Statistical%20Analysis%20of%20Data%20for%20Researchers.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="other">
+            <div class="cert-card" data-provider="other" data-skills="Communication, Presentation Skills">
                 <span class="cert-provider">Other</span>
                 <h3>Business Communications</h3>
                 <p>Professional certification covering effective corporate communication strategies.</p>
                 <a href="certificate.html?file=assets/certificates/Business%20Communications.pdf" class="btn btn-secondary" style="margin-top:auto;">View Certificate →</a>
             </div>
-            <div class="cert-card" data-provider="other">
+            <div class="cert-card" data-provider="other" data-skills="Communication">
                 <span class="cert-provider">Other</span>
                 <h3>Certificate of Appreciation</h3>
                 <p>All Pakistan Minorities Heritage Photo Contest, Islamabad.</p>
@@ -353,30 +540,116 @@
         </div>
     </footer>
 
+    <!-- Combined Filter & Search Engine -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const certCards = document.querySelectorAll('.cert-card');
+            // State
+            let activeProvider = 'all';
+            let activeSkills = new Set();
+            let searchQuery = '';
 
-            filterBtns.forEach(btn => {
+            // Elements
+            const providerBtns = document.querySelectorAll('.filter-btn');
+            const skillChips = document.querySelectorAll('.skill-chip');
+            const searchInput = document.getElementById('certSearch');
+            const resetBtn = document.getElementById('resetFilters');
+            const certCards = document.querySelectorAll('.cert-card');
+            const certCountDisplay = document.getElementById('certCount');
+            const noResultsMsg = document.getElementById('noResults');
+
+            // 1. Provider Filter Events
+            providerBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    // Reset styling
-                    filterBtns.forEach(b => b.classList.remove('active'));
+                    providerBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-                    
-                    const filterValue = btn.getAttribute('data-filter');
-                    
-                    // Filter Logic 
-                    certCards.forEach(card => {
-                        const provider = card.getAttribute('data-provider').toLowerCase();
-                        if (filterValue === 'all' || provider === filterValue) {
-                            card.classList.remove('hidden');
-                        } else {
-                            card.classList.add('hidden');
-                        }
-                    });
+                    activeProvider = btn.getAttribute('data-filter');
+                    applyFilters();
                 });
             });
+
+            // 2. Skill Chip Events
+            skillChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    chip.classList.toggle('active');
+                    const skill = chip.getAttribute('data-skill');
+                    if (activeSkills.has(skill)) {
+                        activeSkills.delete(skill);
+                    } else {
+                        activeSkills.add(skill);
+                    }
+                    applyFilters();
+                });
+            });
+
+            // 3. Search Input Event
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.toLowerCase().trim();
+                applyFilters();
+            });
+
+            // 4. Reset Button Event
+            resetBtn.addEventListener('click', () => {
+                // Reset Provider
+                providerBtns.forEach(b => b.classList.remove('active'));
+                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                activeProvider = 'all';
+
+                // Reset Skills
+                skillChips.forEach(c => c.classList.remove('active'));
+                activeSkills.clear();
+
+                // Reset Search
+                searchInput.value = '';
+                searchQuery = '';
+
+                applyFilters();
+            });
+
+            // Core Filtering Logic
+            function applyFilters() {
+                let visibleCount = 0;
+
+                certCards.forEach(card => {
+                    const provider = card.getAttribute('data-provider').toLowerCase();
+                    const skillsText = card.getAttribute('data-skills') || '';
+                    const cardSkills = skillsText.split(',').map(s => s.trim());
+                    
+                    // Combine text for broad search capability (title, provider, description, skills)
+                    const searchableContent = (card.innerText + ' ' + skillsText).toLowerCase();
+
+                    // Condition 1: Provider Match
+                    const matchProvider = (activeProvider === 'all' || provider === activeProvider);
+
+                    // Condition 2: Search Match
+                    const matchSearch = (searchQuery === '' || searchableContent.includes(searchQuery));
+
+                    // Condition 3: Skills Match (OR logic within selected skills)
+                    let matchSkills = true;
+                    if (activeSkills.size > 0) {
+                        matchSkills = Array.from(activeSkills).some(skill => cardSkills.includes(skill));
+                    }
+
+                    // Apply Visibility
+                    if (matchProvider && matchSearch && matchSkills) {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // Update UI State
+                certCountDisplay.textContent = `${visibleCount} Certificate${visibleCount !== 1 ? 's' : ''} Found`;
+
+                if (visibleCount === 0) {
+                    noResultsMsg.style.display = 'block';
+                } else {
+                    noResultsMsg.style.display = 'none';
+                }
+            }
+
+            // Initialize display count
+            applyFilters();
         });
     </script>
 </body>

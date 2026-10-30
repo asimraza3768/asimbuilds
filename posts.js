@@ -198,7 +198,17 @@ const blogPosts = [
         excerpt: 'A short poem about the logic and quiet beauty of building systems.',
         url: 'posts/the-quiet-builder.html',
         isFeatured: false
-    }
+    },
+    {
+    id: 'about-asim-raza',
+    title: 'Who Is Asim Raza? My Journey, Work and Career in Data Engineering',
+    category: 'Career',
+    date: 'October 30, 2026',
+    timestamp: 1793318400000,
+    readTime: '8 min read',
+    excerpt: 'Meet Asim Raza, a Data Engineer from Gojra, Pakistan. Explore his background, technical skills, data engineering projects, professional experience and career journey.',
+    url: 'posts/about-asim-raza.html',
+    isFeatured: false}
 
 
 
